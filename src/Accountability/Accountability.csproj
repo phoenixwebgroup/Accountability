@@ -93,11 +93,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metrics\CommonMetric.cs" />
+    <Compile Include="Metrics\Goal.cs" />
+    <Compile Include="Metrics\Metric.cs" />
+    <Compile Include="Metrics\Sample.cs" />
+    <Compile Include="Metrics\SampleRating.cs" />
+    <Compile Include="Metrics\SamplingInterval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
