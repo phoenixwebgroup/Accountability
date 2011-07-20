@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{A9F450B9-3DEB-4743-B0CC-A028F934BF97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accountability", "Accountability\Accountability.csproj", "{33D8CF99-68B0-43A0-8243-DCA4C252CEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0DF0B146-EC2F-417B-B48E-36F6935AB5C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{A9F450B9-3DEB-4743-B0CC-A028F934BF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9F450B9-3DEB-4743-B0CC-A028F934BF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9F450B9-3DEB-4743-B0CC-A028F934BF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33D8CF99-68B0-43A0-8243-DCA4C252CEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D8CF99-68B0-43A0-8243-DCA4C252CEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D8CF99-68B0-43A0-8243-DCA4C252CEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D8CF99-68B0-43A0-8243-DCA4C252CEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF0B146-EC2F-417B-B48E-36F6935AB5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF0B146-EC2F-417B-B48E-36F6935AB5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF0B146-EC2F-417B-B48E-36F6935AB5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF0B146-EC2F-417B-B48E-36F6935AB5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
