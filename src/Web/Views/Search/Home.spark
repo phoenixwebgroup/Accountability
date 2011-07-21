@@ -1,2 +1,10 @@
 ﻿<use master="Site"/>
-Hello World!
+<viewdata model="HomeView" />
+<content:title>Accountability Matters!</content:title>
+
+<content name="head">
+	<Stylesheet src="~/Views/Search/Home.css"/>
+	<Script src="~/Views/Search/Home.js"/>
+</content>
+
+!{Model.Build()}

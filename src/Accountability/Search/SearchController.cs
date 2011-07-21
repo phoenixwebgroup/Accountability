@@ -6,7 +6,7 @@
 	{
 		public ViewResult Home()
 		{
-			return View();
+			return View(new HomeView());
 		}
 	}
 }

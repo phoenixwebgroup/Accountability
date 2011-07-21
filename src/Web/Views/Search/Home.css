@@ -1,0 +1,29 @@
+﻿td.SearchPane {
+	vertical-align: top;
+	padding: 2px;
+}
+
+table.SearchPane 
+{
+	border-spacing: 3px;
+}
+
+div.SearchTitle 
+{
+	text-align: center;
+}
+
+div.Result {
+	margin-top: 3px;
+	border: 1px solid gray;
+	padding: 0px 4px 0px 4px;
+}
+
+div.ResultTitle {
+	color: blue;
+}
+
+div.ResultBody {
+	font-size: 8pt;
+	padding: 0px 0px 0px 10px;
+}

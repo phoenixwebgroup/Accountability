@@ -114,6 +114,7 @@
     <Compile Include="Metrics\SampleRating.cs" />
     <Compile Include="Metrics\SamplingInterval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\HomeView.cs" />
     <Compile Include="Search\SearchController.cs" />
     <Compile Include="WebApp\AccountabilityContainer.cs" />
     <Compile Include="WebApp\ActionDescriptorExtensions.cs" />
