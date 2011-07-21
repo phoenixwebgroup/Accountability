@@ -28,7 +28,7 @@ end
 
 desc "Setup dependencies for nuget packages"
 task :dep do
-	package_folder = File.expand_path('Packages')
+	package_folder = File.expand_path('src/Packages')
     packages = FileList["**/packages.config"].map{|f| File.expand_path(f)}
 	packages.each do |file|
 		sh %Q{nuget install #{file} /OutputDirectory #{package_folder}}
