@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Accountability.MvcApplication" Language="C#" %>
+﻿<%@ Application Inherits="Accountability.WebApp.MvcApplication" Language="C#" %>
