@@ -67,6 +67,8 @@ namespace Accountability.Search
 			var searchBar = Tags.Div.AddClass("SearchBar");
 			searchBar.Nest(GetSearch("Admin"));
 			searchBar.Nest(GetSearch("Metrics"));
+			searchBar.Nest(GetSearch("Favorites"));
+			searchBar.Nest(GetSearch("Searches"));
 			return searchBar;
 		}
 
