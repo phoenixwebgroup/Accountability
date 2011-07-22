@@ -1,6 +1,7 @@
 ﻿td.SearchPane {
 	vertical-align: top;
 	padding: 2px;
+	width: 5%;
 }
 
 table.SearchPane 
@@ -16,11 +17,12 @@ div.SearchTitle
 div.Result {
 	margin-top: 3px;
 	border: 1px solid gray;
-	padding: 0px 4px 0px 4px;
+	padding: 5px 4px 5px 4px;
 }
 
 div.ResultTitle {
 	color: blue;
+	cursor: pointer;
 }
 
 div.ResultBody {

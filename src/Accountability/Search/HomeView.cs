@@ -36,6 +36,10 @@ namespace Accountability.Search
 
 			var headerText = Tags.Span.Attr("data-bind", "text: search");
 			var header = Tags.Div.Nest(headerText).AddClass("SearchTitle");
+			var collapse = Tags.Span.AddClasses("ui-icon-arrowthickstop-1-n", "ui-icon").Attr("data-bind", "click: collapseAll");
+			var refresh = Tags.Span.AddClasses("ui-icon-arrowrefresh-1-e", "ui-icon").Attr("data-bind", "click: refresh");
+			header.Nest(collapse);
+			header.Nest(refresh);
 			cell.Nest(header);
 
 			var results = Tags.Div
@@ -53,8 +57,8 @@ namespace Accountability.Search
 				.Id("ResultTemplate");
 
 			var result = Tags.Div.AddClass("Result");
-			var title = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: title")).AddClass("ResultTitle");
-			var body = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: body")).AddClass("ResultBody");
+			var title = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: title")).Attr("data-bind", "click: toggleExpanded").AddClass("ResultTitle");
+			var body = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: body, visible: expanded")).AddClass("ResultBody");
 
 			result.Nest(title).Nest(body);
 			return template
