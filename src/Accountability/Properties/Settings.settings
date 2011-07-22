@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Accountability.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MongoServerLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mongodb://localhost</Value>
+    </Setting>
+    <Setting Name="MongoDatabaseName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Accountability</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
