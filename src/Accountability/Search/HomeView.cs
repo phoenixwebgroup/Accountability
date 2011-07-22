@@ -54,8 +54,7 @@ namespace Accountability.Search
 
 			var result = Tags.Div.AddClass("Result");
 			var title = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: title")).AddClass("ResultTitle");
-			var garble = "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integerut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo utodio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.";
-			var body = Tags.Div.Nest(Tags.SpanText(garble)).AddClass("ResultBody");
+			var body = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: body")).AddClass("ResultBody");
 
 			result.Nest(title).Nest(body);
 			return template

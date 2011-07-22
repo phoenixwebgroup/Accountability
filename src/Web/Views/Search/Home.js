@@ -26,9 +26,25 @@ var Search = function (data) {
 	};
 	ko.mapping.fromJS(data, mapping, this);
 	var me = this;
-	Enumerable.Range(1, 10)
-		.Select(function (i) { return new Result({ title: 'result ' + i }); })
-		.ForEach(function (r) { me.results.push(r); });
+	this.refresh = function () {
+		$.ajax({
+			url: 'Search/SearchFor',
+			data: { text: me.search },
+			success: function (data) {
+				var update = { results: data };
+				ko.mapping.updateFromJS(me, update);
+			}
+			//		dataType: dataType
+		});
+	};
+	if (data.search != 'Admin') {
+		Enumerable.Range(1, 10)
+			.Select(function (i) { return new Result({ title: 'result ' + i, body: 'Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integerut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo utodio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.' }); })
+			.ForEach(function (r) { me.results.push(r); });
+	}
+	else {
+		this.refresh();		
+	}
 };
 var Result = function (data) {
 	ko.mapping.fromJS(data, {}, this);

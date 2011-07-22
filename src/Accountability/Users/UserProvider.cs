@@ -16,7 +16,7 @@
 			return Mongo.GetCollection<User>();
 		}
 
-		public IEnumerable<User> Users()
+		public IEnumerable<User> QueryUsers()
 		{
 			return GetUsers().FindAll();
 		}
