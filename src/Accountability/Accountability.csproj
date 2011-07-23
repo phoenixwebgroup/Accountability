@@ -131,6 +131,7 @@
     <Compile Include="Users\UserResult.cs" />
     <Compile Include="WebApp\AccountabilityContainer.cs" />
     <Compile Include="WebApp\ActionDescriptorExtensions.cs" />
+    <Compile Include="WebApp\HtmlAttributeEncodingNot.cs" />
     <Compile Include="WebApp\ContainerTestExtensions.cs" />
     <Compile Include="WebApp\FilterRegistry.cs" />
     <Compile Include="WebApp\FubuRegistry.cs" />
