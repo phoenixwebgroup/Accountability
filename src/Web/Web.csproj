@@ -156,6 +156,7 @@
     <Content Include="Views\Bindings.xml" />
     <Content Include="Views\Search\Home.css" />
     <Content Include="Views\Search\Home.js" />
+    <Content Include="Scripts\ko.sortableList.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />

@@ -32,5 +32,15 @@
 
 			return Json(resultSet.GetResults());
 		}
+
+		public JsonResult ByTag(Search tag)
+		{
+			var users = new UserProvider().QueryUsers()
+				.Select(u => new UserResult(u));
+
+			var resultSet = new ResultSet(users);
+
+			return Json(resultSet.GetResults());
+		}
 	}
 }

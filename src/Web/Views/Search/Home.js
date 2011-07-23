@@ -14,6 +14,10 @@
 		}
 		homeModel.searches.remove(existingSearch);
 	};
+	this.selectedTask = ko.observable();
+	this.selectTask = function (task) {
+		this.selectedTask(task);
+	};
 };
 
 var Search = function (data) {
@@ -26,10 +30,12 @@ var Search = function (data) {
 	};
 	ko.mapping.fromJS(data, mapping, this);
 	var me = this;
+	this.isTagSearch = this.search().match(/^tag\:/);
 	this.refresh = function () {
+		var url = me.isTagSearch ? 'Search/ByTag' : 'Search/SearchFor';
 		$.ajax({
-			url: 'Search/SearchFor',
-			data: { text: me.search },
+			url: url,
+			data: { text: me.search().replace(/^tag\:/g, "") },
 			success: function (data) {
 				var update = { results: data };
 				ko.mapping.updateFromJS(me, update);
@@ -41,7 +47,11 @@ var Search = function (data) {
 		Enumerable.From(this.results())
 			.ForEach(function (r) { r.collapse(); });
 	} .bind(this);
-	if (data.search != 'Admin') {
+	this.itemMoved = function (item) {
+		// TODO Post to server
+		console.log(item.title() + " moved to " + this.search());
+	};
+	if (!this.isTagSearch && data.search != 'Admin') {
 		Enumerable.Range(1, 10)
 			.Select(function (i) { return new Result({ title: 'result ' + i, body: 'Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integerut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo utodio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.' }); })
 			.ForEach(function (r) { me.results.push(r); });
@@ -53,10 +63,11 @@ var Search = function (data) {
 var Result = function (data) {
 	ko.mapping.fromJS(data, {}, this);
 	this.expanded = ko.observable(false);
-	this.collapse = function() {
+	this.collapse = function () {
 		this.expanded(false);
 	};
-	this.toggleExpanded = function () {
+	this.toggleExpanded = function (e) {
+		e.stopPropagation();
 		this.expanded(!this.expanded());
 	} .bind(this);
 };

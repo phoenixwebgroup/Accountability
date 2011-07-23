@@ -44,7 +44,8 @@ namespace Accountability.Search
 
 			var results = Tags.Div
 				.AddClass("resultSet")
-				.Attr("data-bind", "template: { name: ResultTemplate, foreach: results }");
+				.AddClass("container")
+				.Attr("data-bind", "template: { name: ResultTemplate, foreach: results, templateOptions: { parentList: results } }, sortableList: results, sortCallback: itemMoved");
 			cell.Nest(results);
 
 			return template.Nest(cell);
@@ -56,7 +57,7 @@ namespace Accountability.Search
 				.Attr("type", "text/html")
 				.Id("ResultTemplate");
 
-			var result = Tags.Div.AddClass("Result");
+			var result = Tags.Div.AddClass("Result").Attr("data-bind", "sortableItem: { item: $data, parentList: $item.parentList }, visibleAndSelect: $data === homeModel.selectedTask(), event: { blur: function() { homeModel.selectTask(''); } }, click: function() { homeModel.selectTask($data); }, visible: $data !== homeModel.selectedTask()");
 			var title = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: title")).Attr("data-bind", "click: toggleExpanded").AddClass("ResultTitle");
 			var body = Tags.Div.Nest(Tags.Span.Attr("data-bind", "text: body, visible: expanded")).AddClass("ResultBody");
 
