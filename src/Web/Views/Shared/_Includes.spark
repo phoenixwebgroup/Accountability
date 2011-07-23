@@ -15,3 +15,4 @@
 <Script src="jquery.autocomplete.min.js"/>
 <Script src="jquery.gritter.min.js"/>
 <Script src="Site.js"/>
+<Script src="ko.sortableList.js"/>
