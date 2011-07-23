@@ -22,13 +22,7 @@ ko.bindingHandlers.sortableList = {
 					}
 				}
 			},
-			connectWith: '.container',
-			start: function (event, ui) {
-				ui.item.bind("click.prevent", function (event) { event.preventDefault(); });
-			},
-			stop: function (event, ui) {
-				setTimeout(function () { ui.item.unbind("click.prevent"); }, 300);
-			}
+			connectWith: '.container'
 		});
 	}
 };

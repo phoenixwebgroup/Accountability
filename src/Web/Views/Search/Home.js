@@ -63,10 +63,11 @@ var Search = function (data) {
 var Result = function (data) {
 	ko.mapping.fromJS(data, {}, this);
 	this.expanded = ko.observable(false);
-	this.collapse = function() {
+	this.collapse = function () {
 		this.expanded(false);
 	};
-	this.toggleExpanded = function () {
+	this.toggleExpanded = function (e) {
+		e.stopPropagation();
 		this.expanded(!this.expanded());
 	} .bind(this);
 };
