@@ -80,7 +80,11 @@ $(function () {
 		}
 	};
 	var data = {
-		searches: []
+		searches: [],
+		selectedTask: ko.observable(),
+		selectTask: function(task) {
+			this.selectedTask(task);
+		}
 	};
 	homeModel = ko.mapping.fromJS(data, mapping, homeModel);
 	ko.applyBindings(homeModel);
