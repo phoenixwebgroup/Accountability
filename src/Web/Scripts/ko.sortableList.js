@@ -2,6 +2,7 @@
 ko.bindingHandlers.sortableList = {
 	init: function (element, valueAccessor, allBindingsAccessor, context) {
 		$(element).data("sortList", valueAccessor()); //attach meta-data
+		var callback = allBindingsAccessor().sortCallback;
 		$(element).sortable({
 			update: function (event, ui) {
 				var item = ui.item.data("sortItem");
@@ -9,15 +10,25 @@ ko.bindingHandlers.sortableList = {
 					//identify parents
 					var originalParent = ui.item.data("parentList");
 					var newParent = ui.item.parent().data("sortList");
+					var dropModel = ui.item.parent().tmplItem().data;
 					//figure out its new position
 					var position = ko.utils.arrayIndexOf(ui.item.parent().children(), ui.item[0]);
 					if (position >= 0) {
 						originalParent.remove(item);
 						newParent.splice(position, 0, item);
 					}
+					if (callback) {
+						callback.call(dropModel, item);
+					}
 				}
 			},
-			connectWith: '.container'
+			connectWith: '.container',
+			start: function (event, ui) {
+				ui.item.bind("click.prevent", function (event) { event.preventDefault(); });
+			},
+			stop: function (event, ui) {
+				setTimeout(function () { ui.item.unbind("click.prevent"); }, 300);
+			}
 		});
 	}
 };

@@ -14,6 +14,10 @@
 		}
 		homeModel.searches.remove(existingSearch);
 	};
+	this.selectedTask = ko.observable();
+	this.selectTask = function (task) {
+		this.selectedTask(task);
+	};
 };
 
 var Search = function (data) {
@@ -43,6 +47,10 @@ var Search = function (data) {
 		Enumerable.From(this.results())
 			.ForEach(function (r) { r.collapse(); });
 	} .bind(this);
+	this.itemMoved = function (item) {
+		// TODO Post to server
+		console.log(item.title() + " moved to " + this.search());
+	};
 	if (!this.isTagSearch && data.search != 'Admin') {
 		Enumerable.Range(1, 10)
 			.Select(function (i) { return new Result({ title: 'result ' + i, body: 'Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integerut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sitamet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo utodio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.' }); })
@@ -80,11 +88,7 @@ $(function () {
 		}
 	};
 	var data = {
-		searches: [],
-		selectedTask: ko.observable(),
-		selectTask: function(task) {
-			this.selectedTask(task);
-		}
+		searches: []
 	};
 	homeModel = ko.mapping.fromJS(data, mapping, homeModel);
 	ko.applyBindings(homeModel);

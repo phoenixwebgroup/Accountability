@@ -45,7 +45,7 @@ namespace Accountability.Search
 			var results = Tags.Div
 				.AddClass("resultSet")
 				.AddClass("container")
-				.Attr("data-bind", "template: { name: ResultTemplate, foreach: results, templateOptions: { parentList: results } }, sortableList: results");
+				.Attr("data-bind", "template: { name: ResultTemplate, foreach: results, templateOptions: { parentList: results } }, sortableList: results, sortCallback: itemMoved");
 			cell.Nest(results);
 
 			return template.Nest(cell);
