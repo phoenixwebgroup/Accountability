@@ -1,7 +1,9 @@
 ﻿namespace Accountability.Mongos
 {
+	using Metrics;
 	using MongoDB.Driver;
 	using Properties;
+	using Users;
 
 	public class Mongo
 	{
@@ -19,9 +21,19 @@
 		{
 		}
 
-		public static MongoCollection<T>  GetCollection<T>()
+		public static MongoCollection<T> GetCollection<T>()
 		{
 			return Database.GetCollection<T>(typeof (T).Name);
+		}
+
+		public static MongoCollection<Metric> Metrics
+		{
+			get { return GetCollection<Metric>(); }
+		}
+
+		public static MongoCollection<Source> Sources
+		{
+			get { return GetCollection<Source>(); }
 		}
 	}
 }
