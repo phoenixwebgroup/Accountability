@@ -129,6 +129,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AjaxForms.js" />
+    <Content Include="Scripts\FilterFormAutoSubmit.js" />
+    <Content Include="Scripts\FilterFormJqGrid.js" />
+    <Content Include="Scripts\FilterFormNoAutoSubmit.js" />
     <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\jquery-1.6.2.min.js" />
@@ -145,6 +149,7 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\JQueryRowSelect.js" />
     <Content Include="Scripts\knockout-1.2.1.debug.js" />
     <Content Include="Scripts\knockout-1.2.1.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -153,6 +158,9 @@
     <Content Include="Scripts\linq.js" />
     <Content Include="Scripts\linq.min.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\PageActions.JqGrid.js" />
+    <Content Include="Scripts\PageActions.js" />
+    <Content Include="Scripts\PageActions.RowSelect.js" />
     <Content Include="Scripts\Site.js" />
     <Content Include="Views\Bindings.xml" />
     <Content Include="Scripts\ko.sortableList.js" />
@@ -187,6 +195,7 @@
     <Content Include="config\smtp.dev.config" />
     <Content Include="config\spark.dev.config" />
     <Content Include="config\settings.dev.config" />
+    <None Include="Views\Admin\Index.spark" />
     <None Include="Views\Shared\Site.spark" />
     <None Include="Views\Shared\_Includes.spark" />
   </ItemGroup>
