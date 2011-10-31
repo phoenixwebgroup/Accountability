@@ -8,7 +8,7 @@
 	public class Mongo
 	{
 		protected static MongoServer Server { get; set; }
-		protected static MongoDatabase Database { get; set; }
+		public static MongoDatabase Database { get; set; }
 
 		static Mongo()
 		{

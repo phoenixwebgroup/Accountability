@@ -31,14 +31,31 @@
 				.GetForm();
 		}
 
-		public void SaveMetric(Metric metric)
+		public string SaveMetric(Metric metric, string delete = null)
 		{
+			if (IsDelete(delete))
+			{
+				Mongo.Metrics.Remove(metric.Id);
+				return "Deleted";
+			}
 			Mongo.Metrics.Save(metric);
+			return "Saved";
 		}
 
-		public void SaveSource(Source source)
+		private static bool IsDelete(string delete)
 		{
+			return delete == "Delete";
+		}
+
+		public string SaveSource(Source source, string delete = null)
+		{
+			if (IsDelete(delete))
+			{
+				Mongo.Sources.Remove(source.Id);
+				return "Deleted";
+			}
 			Mongo.Sources.Save(source);
+			return "Saved";
 		}
 
 		public HtmlTag Edit(AdminFilters.AdminType adminType, ObjectId id)

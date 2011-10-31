@@ -22,6 +22,7 @@ namespace Accountability.Users
 			var id = Tags.Hidden.Name("id").Value(_Source.Id);
 			form.Nest(id,
 			          _Source.EditTemplateFor(m => m.Name),
+					  Tags.SubmitButton.Value("Delete").Name("Delete"),
 			          Tags.SubmitButton.Value("Save"));
 			return fieldset.Nest(form);
 		}

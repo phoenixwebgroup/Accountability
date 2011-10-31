@@ -16,16 +16,16 @@
 
 });
 
-function itemSaved() {
-	$('#editor').html('Saved');
+function itemSaved(data) {
+	$('#editor').html(data);
 	$('#FilterForm').submit();
 }
 
 function loadEditor(data) {
 	$('#editor').html(data);
 	$('#editor form').ajaxForm({
-		success: function () {
-			itemSaved();
+		success: function (data) {
+			itemSaved(data);
 		}
 	});
 }
