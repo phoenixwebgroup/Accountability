@@ -1,0 +1,11 @@
+﻿<viewdata model="AdminListView"/>
+!{Model.GetView()}
+<script type="text/javascript">
+	$.pageActions.RowSelect.For('#AdminSearch', { attrName: 'key', allowMulti: false});
+	
+	var original = $.rowSelect.allSettings['AdminSearch'].selectionChanged
+	$.rowSelect.allSettings['AdminSearch'].selectionChanged = function(d){
+		original();
+		editSelected();
+	};
+</script>

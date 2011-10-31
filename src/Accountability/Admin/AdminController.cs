@@ -3,6 +3,7 @@
 	using System.Web.Mvc;
 	using HtmlTags;
 	using Metrics;
+	using MongoDB.Bson;
 	using Mongos;
 	using Users;
 
@@ -13,10 +14,9 @@
 			return View(new AdminFilters());
 		}
 
-		public HtmlTag IndexData(AdminFilters filters)
+		public ViewResult IndexData(AdminFilters filters)
 		{
-			return new AdminListView(filters)
-				.GetView();
+			return View(new AdminListView(filters));
 		}
 
 		public HtmlTag AddMetric()
@@ -39,6 +39,17 @@
 		public void SaveSource(Source source)
 		{
 			Mongo.Sources.Save(source);
+		}
+
+		public HtmlTag Edit(AdminFilters.AdminType adminType, ObjectId id)
+		{
+			if (adminType == AdminFilters.AdminType.Metrics)
+			{
+				return new MetricForm(Mongo.Metrics.FindOneById(id))
+					.GetForm();
+			}
+			return new SourceForm(Mongo.Sources.FindOneById(id))
+				.GetForm();
 		}
 	}
 }

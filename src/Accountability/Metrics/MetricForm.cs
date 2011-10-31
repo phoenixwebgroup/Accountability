@@ -19,7 +19,7 @@
 			fieldset.Nest(Tags.Legend.Text("Edit Metric"));
 			var form = Tags.Form;
 			form.Action("Admin/SaveMetric");
-			var id = Tags.Hidden.Id("id").Value(_Metric.Id);
+			var id = Tags.Hidden.Name("id").Value(_Metric.Id);
 			form.Nest(id,
 			          _Metric.EditTemplateFor(m => m.Name),
 			          _Metric.EditTemplateFor(m => m.Description),

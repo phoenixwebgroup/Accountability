@@ -149,6 +149,7 @@
     <Compile Include="WebApp\MvcApplication.cs" />
     <Compile Include="WebApp\MySparkView.cs" />
     <Compile Include="WebApp\NoPageActionsSecurity.cs" />
+    <Compile Include="WebApp\ObjectIdModelBinder.cs" />
     <Compile Include="WebApp\RouteRegistry.cs" />
     <Compile Include="WebApp\SetJsonRequestBehaviorGlobally.cs" />
     <Compile Include="WebApp\HtmlConventions.cs" />

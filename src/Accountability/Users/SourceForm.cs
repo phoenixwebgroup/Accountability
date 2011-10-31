@@ -19,7 +19,7 @@ namespace Accountability.Users
 			fieldset.Nest(Tags.Legend.Text("Edit Source"));
 			var form = Tags.Form;
 			form.Action("Admin/SaveSource");
-			var id = Tags.Hidden.Id("id").Value(_Source.Id);
+			var id = Tags.Hidden.Name("id").Value(_Source.Id);
 			form.Nest(id,
 			          _Source.EditTemplateFor(m => m.Name),
 			          Tags.SubmitButton.Value("Save"));

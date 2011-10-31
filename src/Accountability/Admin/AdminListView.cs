@@ -17,7 +17,9 @@
 			var table = Tags.Table;
 			AddHeader(table);
 			AddItems(table);
-			return table;
+			return table
+				.Id("AdminSearch")
+				.AddClass("admin");
 		}
 
 		private void AddItems(TableTag table)
@@ -28,7 +30,7 @@
 		private void AddItem(TableTag table, AdminItem item)
 		{
 			var row = table.AddBodyRow();
-			row.Attr("key", item.AdminType + "-" + item.Id);
+			row.Attr("key", JsonUtil.ToJson(new {item.AdminType, Id = item.Id.ToString()}));
 			row.Cell(item.AdminType.ToString());
 			row.Cell(item.Summary);
 		}

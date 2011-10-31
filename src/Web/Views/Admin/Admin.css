@@ -1,0 +1,64 @@
+﻿table.admin 
+{
+	font-size: 10px;
+	margin: 20px 45px 20px 45px;
+	text-align: left;
+	border: 1px solid;
+}
+
+table.admin a
+{
+	cursor: pointer;
+}
+
+table.admin caption
+{
+	text-align: left;
+	padding: 3px 5px 3px 5px;
+	background: #CCC;
+	padding-left: 15px;
+	font-size: 12pt;
+}
+
+table.admin thead th,
+table.admin thead td
+{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+table.admin tfoot td
+{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+table.admin tbody td
+{
+	padding: 1px 5px 1px 5px;
+	white-space: nowrap;
+}
+
+table.admin tbody tr.summaryRow td
+{
+}
+
+table.admin .rowSelect .selected
+{
+	background-color: #ccc;
+}
+
+table.admin tbody tr
+{
+	cursor: pointer;
+}
+
+table.admin tbody tr:hover
+{
+	background-color: #ccc;
+	cursor: pointer;
+}
