@@ -4,6 +4,8 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Web.Mvc;
+	using BclExtensionMethods;
+	using FluentMongo.Linq;
 	using HtmlTags;
 	using HtmlTags.Extensions;
 	using HtmlTags.Extensions.Mvc;
@@ -48,14 +50,25 @@
 		{
 			if (Type == AdminType.Metrics)
 			{
-				return Mongo.Metrics
-					.FindAll()
+				var metrics = Mongo.Metrics
+					.AsQueryable();
+				if (Search.IsNotNullOrWhiteSpace())
+				{
+					metrics = metrics.Where(m => m.Description.Contains(Search)
+					                             || m.WhyItMatters.Contains(Search));
+				}
+				return metrics
 					.Select(m => new AdminItem(m));
 			}
 			if (Type == AdminType.Sources)
 			{
-				return Mongo.Sources
-					.FindAll()
+				var sources = Mongo.Sources
+					.AsQueryable();
+				if (Search.IsNotNullOrWhiteSpace())
+				{
+					sources = sources.Where(m => m.Name.Contains(Search));
+				}
+				return sources
 					.Select(s => new AdminItem(s));
 			}
 			throw new NotSupportedException("Invalid admin type: " + Type);
