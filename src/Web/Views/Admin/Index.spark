@@ -4,15 +4,20 @@
 <content:head>
 	!{Html.ScriptInclude("FilterFormAutoSubmit.js")}
 	!{Html.ScriptInclude("PageActions.RowSelect.js")}
+	!{Html.ScriptInclude("~/Views/Admin/Index.js")}
 </content:head>
 
 <div class="Filters">
-    !{Model.FilterForm(Html, Url)}
+	!{Model.FilterForm(Html, Url)}
+	<input type="button" value="Add Metric" id="AddMetric"/>
+	<input type="button" value="Add Source" id="AddSource"/>
 </div>
 <br style="clear: both"/>
-!{Ajax.FilterForm("#FilterForm", "#report")}
+!{Ajax.FilterForm("#FilterForm", "#search")}
 
 
-<div id="report">
+<div id="search" style="width: 400px; float:left">
     <AjaxLoading />
+</div>
+<div id="editor" style="float:left">
 </div>

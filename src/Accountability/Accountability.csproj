@@ -117,11 +117,13 @@
     <Compile Include="Admin\AdminFilters.cs" />
     <Compile Include="Admin\AdminItem.cs" />
     <Compile Include="Admin\AdminListView.cs" />
+    <Compile Include="Users\SourceForm.cs" />
     <Compile Include="CacheExtensions.cs" />
     <Compile Include="Metrics\AddActionItem.cs" />
     <Compile Include="Metrics\GiveFeedback.cs" />
     <Compile Include="Metrics\Metric.cs" />
     <Compile Include="Metrics\AccountabilityEvent.cs" />
+    <Compile Include="Metrics\MetricForm.cs" />
     <Compile Include="Metrics\MetricsById.cs" />
     <Compile Include="Metrics\MetricView.cs" />
     <Compile Include="Metrics\Rating.cs" />

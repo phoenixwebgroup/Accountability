@@ -162,6 +162,7 @@
     <Content Include="Scripts\PageActions.js" />
     <Content Include="Scripts\PageActions.RowSelect.js" />
     <Content Include="Scripts\Site.js" />
+    <Content Include="Views\Admin\Index.js" />
     <Content Include="Views\Bindings.xml" />
     <Content Include="Scripts\ko.sortableList.js" />
     <Content Include="Web.config" />
