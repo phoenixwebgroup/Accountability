@@ -4,5 +4,6 @@ namespace Accountability.Metrics
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
+		public string WhyItMatters { get; set; }
 	}
 }
