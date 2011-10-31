@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheExtensions.cs" />
     <Compile Include="Metrics\AddActionItem.cs" />
     <Compile Include="Metrics\GiveFeedback.cs" />
     <Compile Include="Metrics\Metric.cs" />
