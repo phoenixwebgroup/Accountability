@@ -1,10 +1,11 @@
 namespace Accountability.Metrics
 {
 	using BclExtensionMethods.ValueTypes;
+	using MongoDB.Bson;
 
-	public class Goal
+	public class AccountabilityEvent
 	{
-		public string Description { get; set; }
 		public Date Date { get; set; }
+		public ObjectId SourceId { get; set; }
 	}
 }
