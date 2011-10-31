@@ -155,8 +155,6 @@
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\Site.js" />
     <Content Include="Views\Bindings.xml" />
-    <Content Include="Views\Search\Home.css" />
-    <Content Include="Views\Search\Home.js" />
     <Content Include="Scripts\ko.sortableList.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -189,7 +187,6 @@
     <Content Include="config\smtp.dev.config" />
     <Content Include="config\spark.dev.config" />
     <Content Include="config\settings.dev.config" />
-    <None Include="Views\Search\Home.spark" />
     <None Include="Views\Shared\Site.spark" />
     <None Include="Views\Shared\_Includes.spark" />
   </ItemGroup>
