@@ -1,6 +1,6 @@
 namespace Accountability.Metrics
 {
-	public enum SampleRating
+	public enum Rating
 	{
 		Plus,
 		Minus,

@@ -107,15 +107,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metrics\AddActionItem.cs" />
+    <Compile Include="Metrics\GiveFeedback.cs" />
     <Compile Include="Metrics\Metric.cs" />
-    <Compile Include="Metrics\ActionItem.cs" />
     <Compile Include="Metrics\AccountabilityEvent.cs" />
-    <Compile Include="Metrics\Events.cs" />
-    <Compile Include="Metrics\FeedbackView.cs" />
-    <Compile Include="Metrics\Sample.cs" />
-    <Compile Include="Metrics\SampleRating.cs" />
-    <Compile Include="Metrics\SamplingInterval.cs" />
-    <Compile Include="Metrics\TimeFrame.cs" />
+    <Compile Include="Metrics\MetricView.cs" />
+    <Compile Include="Metrics\Rating.cs" />
+    <Compile Include="Metrics\ScheduleNextReview.cs" />
     <Compile Include="Mongos\Mongo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
