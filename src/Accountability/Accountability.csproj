@@ -108,6 +108,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminController.cs" />
+    <Compile Include="Admin\AdminFilters.cs" />
+    <Compile Include="Admin\AdminItem.cs" />
+    <Compile Include="Admin\AdminListView.cs" />
     <Compile Include="CacheExtensions.cs" />
     <Compile Include="Metrics\AddActionItem.cs" />
     <Compile Include="Metrics\GiveFeedback.cs" />

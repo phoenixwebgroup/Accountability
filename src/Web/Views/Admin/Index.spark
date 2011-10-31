@@ -1,0 +1,18 @@
+﻿<use master="Site"/>
+<viewdata model="AdminFilters"/>
+<content:title>Admin</content:title>
+<content:head>
+	!{Html.ScriptInclude("FilterFormAutoSubmit.js")}
+	!{Html.ScriptInclude("PageActions.RowSelect.js")}
+</content:head>
+
+<div class="Filters">
+    !{Model.FilterForm(Html, Url)}
+</div>
+<br style="clear: both"/>
+!{Ajax.FilterForm("#FilterForm", "#report")}
+
+
+<div id="report">
+    <AjaxLoading />
+</div>
