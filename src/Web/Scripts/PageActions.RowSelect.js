@@ -18,12 +18,7 @@ $.pageActions.RowSelect =
 				$.pageActions.SelectionChanged();
 			});
 		},
-
-		GetSelectedRecordData: function () {
-			var selector = $.pageActions.RowSelect.TableSelector;
-			return GetSelectedRecordData(selector);
-		},
-		GetSelectedRecordData: function (selector) {
+		GetSelectedRecordDataFor: function (selector) {
 			var selectedValues = $.rowSelect.api.getSelectedValues(selector);
 			if (selectedValues == undefined) {
 				return null;
@@ -39,6 +34,10 @@ $.pageActions.RowSelect =
 				return $.extend(first, { ids: values.Select(RowKeySelector).ToArray() });
 			}
 			return first;
+		},
+		GetSelectedRecordData: function () {
+			var selector = $.pageActions.RowSelect.TableSelector;
+			return $.pageActions.RowSelect.GetSelectedRecordDataFor(selector);
 		},
 		RowKeySelector: function (key) {
 			return $.evalJSON(key);
