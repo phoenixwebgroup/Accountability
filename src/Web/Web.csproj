@@ -38,14 +38,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.2.5.3\lib\NET40\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.2.5.4\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator.WindsorAdapter">
       <HintPath>..\packages\CommonServiceLocator.WindsorAdapter.1.0\lib\NET35\CommonServiceLocator.WindsorAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="GotFour.Windsor">
-      <HintPath>..\packages\GotFour.Windsor.1.1.4177.27196\lib\net40\GotFour.Windsor.dll</HintPath>
+    <Reference Include="GotFour.Windsor, Version=1.1.4311.30130, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\GotFour.Windsor.1.1.4311.30130\lib\net40\GotFour.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
