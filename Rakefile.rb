@@ -34,3 +34,8 @@ task :dep do
 		sh %Q{nuget install #{file} /OutputDirectory #{package_folder}}
     end
 end
+
+desc "Backup mongo database"
+task :mongobackup do
+	sh "mongodump -d Accountability -o mongobackup"
+end
