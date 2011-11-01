@@ -12,7 +12,7 @@
 
 		public AdminItem(Metric metric)
 		{
-			Summary = metric.Name + " - " + metric.Description;
+			Summary = metric.Name;
 			AdminType = AdminFilters.AdminType.Metrics;
 			Id = metric.Id;
 		}
