@@ -24,8 +24,8 @@
 			          _Metric.EditTemplateFor(m => m.Name),
 			          _Metric.EditTemplateFor(m => m.Description),
 			          _Metric.EditTemplateFor(m => m.WhyItMatters),
-					  Tags.SubmitButton.Value("Delete").Name("Delete"),
-			          Tags.SubmitButton.Value("Save"));
+			          Tags.SubmitButton.Value("Save"),
+					  Tags.SubmitButton.Value("Delete").Name("Delete"));
 			return fieldset.Nest(form);
 		}
 	}
