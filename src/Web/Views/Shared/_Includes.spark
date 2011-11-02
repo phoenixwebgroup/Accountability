@@ -1,5 +1,5 @@
 ﻿<Stylesheet src="Site.css"/>
-<Stylesheet src="~/content/themes/hbt/jquery-ui-1.7.2.custom.css"/>
+<Stylesheet src="~/content/themes/base/jquery-ui.css"/>
 <Stylesheet src="ui.jqgrid.css"/>
 <Stylesheet src="jquery.gritter.css"/>
 <Stylesheet src="timepicker.css"/>
@@ -31,7 +31,6 @@
 <Script src="jquery.autocomplete.min.js"/>
 <Script src="jquery.form.js"/>
 <Script src="https://ajax.microsoft.com/ajax/jquery.validate/1.6/jquery.validate.pack.js"/>
-<Script src="xVal.jquery.validate.js"/>
 <Script src="jquery.json-2.2.min.js"/>
 <Script src="spinner.js"/>
 <Script src="jquery.qtip-1.0.0-rc3.min.js"/>
