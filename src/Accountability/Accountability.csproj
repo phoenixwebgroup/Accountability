@@ -130,6 +130,7 @@
     <Compile Include="Authentication\UserPrincipal.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
+    <Compile Include="Users\Roles.cs" />
     <Compile Include="Users\Source.cs" />
     <Compile Include="Users\UserForm.cs" />
     <Compile Include="CacheExtensions.cs" />

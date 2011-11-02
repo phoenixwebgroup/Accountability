@@ -19,7 +19,7 @@
 
 		public AdminItem(User user)
 		{
-			Summary = user.Name;
+			Summary = user.Name + " - " + user.Role + (user.IsActive ? string.Empty : " - Inactive");
 			AdminType = AdminFilters.AdminType.User;
 			Id = user.Id;
 		}
