@@ -31,9 +31,9 @@
 			get { return GetCollection<Metric>(); }
 		}
 
-		public static MongoCollection<Source> Sources
+		public static MongoCollection<User> Users
 		{
-			get { return GetCollection<Source>(); }
+			get { return GetCollection<User>(); }
 		}
 	}
 }

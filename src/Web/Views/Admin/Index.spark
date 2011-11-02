@@ -11,7 +11,7 @@
 <div class="Filters">
 	!{Model.FilterForm(Html, Url)}
 	<input type="button" value="Add Metric" id="AddMetric"/>
-	<input type="button" value="Add Source" id="AddSource"/>
+	<input type="button" value="Add User" id="AddUser"/>
 </div>
 <br style="clear: both"/>
 !{Ajax.FilterForm("#FilterForm", "#search")}

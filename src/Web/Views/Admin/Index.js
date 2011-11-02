@@ -7,9 +7,9 @@
 		});
 	});
 
-	$('#AddSource').click(function () {
+	$('#AddUser').click(function () {
 		$.ajax({
-			url: 'Admin/AddSource',
+			url: 'Admin/AddUser',
 			success: loadEditor
 		});
 	});

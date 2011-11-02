@@ -13,15 +13,15 @@
 		public AdminItem(Metric metric)
 		{
 			Summary = metric.Name;
-			AdminType = AdminFilters.AdminType.Metrics;
+			AdminType = AdminFilters.AdminType.Metric;
 			Id = metric.Id;
 		}
 
-		public AdminItem(Source source)
+		public AdminItem(User user)
 		{
-			Summary = source.Name;
-			AdminType = AdminFilters.AdminType.Sources;
-			Id = source.Id;
+			Summary = user.Name;
+			AdminType = AdminFilters.AdminType.User;
+			Id = user.Id;
 		}
 	}
 }

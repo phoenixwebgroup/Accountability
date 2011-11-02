@@ -118,7 +118,8 @@
     <Compile Include="Admin\AdminItem.cs" />
     <Compile Include="Admin\AdminListView.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
-    <Compile Include="Users\SourceForm.cs" />
+    <Compile Include="Users\Source.cs" />
+    <Compile Include="Users\UserForm.cs" />
     <Compile Include="CacheExtensions.cs" />
     <Compile Include="Metrics\AddActionItem.cs" />
     <Compile Include="Metrics\GiveFeedback.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Metrics\MetricView.cs" />
     <Compile Include="Metrics\Rating.cs" />
     <Compile Include="Metrics\ScheduleNextReview.cs" />
-    <Compile Include="Users\Source.cs" />
+    <Compile Include="Users\User.cs" />
     <Compile Include="Users\SourcesById.cs" />
     <Compile Include="Mongos\Mongo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

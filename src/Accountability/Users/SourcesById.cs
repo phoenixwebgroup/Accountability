@@ -13,9 +13,10 @@ namespace Accountability.Users
 			OnMissingOrExpired = Load;
 		}
 
-		private Source Load(ObjectId sourceId)
+		private User Load(ObjectId sourceId)
 		{
-			return Mongo.Sources.FindOneById(sourceId);
+			// todo in the future we might have other sources too.
+			return Mongo.Users.FindOneById(sourceId);
 		}
 	}
 }

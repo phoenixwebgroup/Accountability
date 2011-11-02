@@ -1,6 +1,6 @@
 namespace Accountability.Users
 {
-	public class Source : Aggregate
+	public abstract class Source : Aggregate
 	{
 		public string Name { get; set; }
 	}

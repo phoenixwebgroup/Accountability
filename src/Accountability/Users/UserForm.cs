@@ -4,24 +4,24 @@ namespace Accountability.Users
 	using HtmlTags.Extensions;
 	using HtmlTags.UI.Helpers;
 
-	public class SourceForm
+	public class UserForm
 	{
-		private readonly Source _Source;
+		private readonly User _User;
 
-		public SourceForm(Source source)
+		public UserForm(User user)
 		{
-			_Source = source;
+			_User = user;
 		}
 
 		public HtmlTag GetForm()
 		{
 			var fieldset = Tags.FieldSet;
-			fieldset.Nest(Tags.Legend.Text("Edit Source"));
+			fieldset.Nest(Tags.Legend.Text("Edit User"));
 			var form = Tags.Form;
-			form.Action("Admin/SaveSource");
-			var id = Tags.Hidden.Name("id").Value(_Source.Id);
+			form.Action("Admin/SaveUser");
+			var id = Tags.Hidden.Name("id").Value(_User.Id);
 			form.Nest(id,
-			          _Source.EditTemplateFor(m => m.Name),
+			          _User.EditTemplateFor(m => m.Name),
 			          Tags.SubmitButton.Value("Save"),
 			          Tags.SubmitButton.Value("Delete").Name("Delete")
 				);

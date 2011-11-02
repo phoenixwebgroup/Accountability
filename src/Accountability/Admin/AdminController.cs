@@ -25,9 +25,9 @@
 				.GetForm();
 		}
 
-		public HtmlTag AddSource()
+		public HtmlTag AddUser()
 		{
-			return new SourceForm(new Source())
+			return new UserForm(new User())
 				.GetForm();
 		}
 
@@ -47,25 +47,25 @@
 			return delete == "Delete";
 		}
 
-		public string SaveSource(Source source, string delete = null)
+		public string SaveUser(User user, string delete = null)
 		{
 			if (IsDelete(delete))
 			{
-				Mongo.Sources.Remove(source.Id);
+				Mongo.Users.Remove(user.Id);
 				return "Deleted";
 			}
-			Mongo.Sources.Save(source);
+			Mongo.Users.Save(user);
 			return "Saved";
 		}
 
 		public HtmlTag Edit(AdminFilters.AdminType adminType, ObjectId id)
 		{
-			if (adminType == AdminFilters.AdminType.Metrics)
+			if (adminType == AdminFilters.AdminType.Metric)
 			{
 				return new MetricForm(Mongo.Metrics.FindOneById(id))
 					.GetForm();
 			}
-			return new SourceForm(Mongo.Sources.FindOneById(id))
+			return new UserForm(Mongo.Users.FindOneById(id))
 				.GetForm();
 		}
 	}

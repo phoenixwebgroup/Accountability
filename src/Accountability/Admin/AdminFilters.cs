@@ -16,8 +16,8 @@
 	{
 		public enum AdminType
 		{
-			Metrics,
-			Sources
+			Metric,
+			User
 		}
 
 		public AdminType Type { get; set; }
@@ -48,7 +48,7 @@
 
 		public IEnumerable<AdminItem> GetAdminItems()
 		{
-			if (Type == AdminType.Metrics)
+			if (Type == AdminType.Metric)
 			{
 				var metrics = Mongo.Metrics
 					.AsQueryable();
@@ -60,15 +60,15 @@
 				return metrics
 					.Select(m => new AdminItem(m));
 			}
-			if (Type == AdminType.Sources)
+			if (Type == AdminType.User)
 			{
-				var sources = Mongo.Sources
+				var users = Mongo.Users
 					.AsQueryable();
 				if (Search.IsNotNullOrWhiteSpace())
 				{
-					sources = sources.Where(m => m.Name.Contains(Search));
+					users = users.Where(m => m.Name.Contains(Search));
 				}
-				return sources
+				return users
 					.Select(s => new AdminItem(s));
 			}
 			throw new NotSupportedException("Invalid admin type: " + Type);
