@@ -1,0 +1,6 @@
+<use master="AuthenticationMaster"/>
+<content:title>Logged Out</content:title>
+
+You are now signed out.
+<br/>
+<a href="Login">Login</a>

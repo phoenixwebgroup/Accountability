@@ -9,6 +9,7 @@
 		{
 			RegisterControllerFactory();
 			RegisterControllers();
+			ScanMyAssembly(Conventions.FirstInterfaceIsIName);
 		}
 
 		private void RegisterControllerFactory()

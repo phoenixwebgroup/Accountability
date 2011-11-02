@@ -9,7 +9,7 @@ namespace Accountability.WebApp
 		protected static void IgnoreAxds(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-		}
+		} 
 
 		protected static void IgnoreFavicons(RouteCollection routes)
 		{
@@ -26,13 +26,13 @@ namespace Accountability.WebApp
 			routes.MapRoute(
 				"IdLess",
 				"{controller}/{action}",
-				new { controller = "Search", action = "Home" }
+				new { controller = "Home", action = "Search" }
 				);
 
 			routes.MapRoute(
 				"Default",
 				"{controller}/{action}/{id}",
-				new { controller = "Search", action = "Home", id = string.Empty }
+				new { controller = "Home", action = "Search", id = string.Empty }
 				);
 		}
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <title><use:title/></title>
+		<Stylesheet src="Site.css">
+		<Stylesheet src="openid.css">
+		<Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+		<Script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js">
+		<Script src="jquery.openid.js">
+		!{Html.Base()}
+        <use:head/>
+    </head>
+	<AuthenticationHeader/>
+    <body style="margin: 0px">
+	    <div style="margin: 5px 20px 5px 20px">
+		    <use:view/>
+	    </div>
+    </body>
+</html>
