@@ -7,7 +7,12 @@
 	!{Html.Base()}
     <use:head/>
 </head>
-<body>
+<body style="margin: 0px">
+	<div style="background-color:#555; color:white; font-size: 12pt; padding: 2px 10px 2px 2px; text-align: right">
+		Accountability - !{Accountability.Authentication.UserPrincipal.Current.User.Name}
+	</div>
+	<div>
+	</div>
     <div id="main">
 		<use:view/>
     </div>

@@ -122,10 +122,12 @@
     <Compile Include="Admin\AdminListView.cs" />
     <Compile Include="Authentication\Authentication.cs" />
     <Compile Include="Authentication\AuthenticationController.cs" />
+    <Compile Include="Authentication\AuthenticationModule.cs" />
     <Compile Include="Authentication\IOpenIdUserService.cs" />
     <Compile Include="Authentication\OpenIdHelper.cs" />
     <Compile Include="Authentication\OpenIdUserService.cs" />
     <Compile Include="Authentication\UserInformation.cs" />
+    <Compile Include="Authentication\UserPrincipal.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
     <Compile Include="Users\Source.cs" />

@@ -1,6 +1,7 @@
 ﻿namespace Accountability.WebApp
 {
 	using System.Web.Mvc;
+	using Authentication;
 	using GotFour.Windsor;
 
 	public class WebRegistry : ExtendedRegistryBase
@@ -9,6 +10,7 @@
 		{
 			RegisterControllerFactory();
 			RegisterControllers();
+			For<UserPrincipal>().LifeStyle.PerWebRequest();
 			ScanMyAssembly(Conventions.FirstInterfaceIsIName);
 		}
 

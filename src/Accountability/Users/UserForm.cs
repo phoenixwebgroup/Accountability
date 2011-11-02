@@ -23,6 +23,7 @@ namespace Accountability.Users
 			form.Nest(id,
 			          _User.EditTemplateFor(m => m.Name),
 			          _User.EditTemplateFor(m => m.Email),
+			          _User.EditTemplateFor(m => m.IsActive),
 			          _User.EditTemplateFor(m => m.ClaimedIdentifier),
 			          Tags.SubmitButton.Value("Save"),
 			          Tags.SubmitButton.Value("Delete").Name("Delete")
