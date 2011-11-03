@@ -2,8 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using FluentMongo.Linq;
     using HtmlTags.UI;
     using HtmlTags.UI.Attributes;
+    using Metrics;
+    using MongoDB.Bson;
     using Mongos;
 
     public class SearchFilters
@@ -14,32 +19,40 @@
         }
 
         [OptionsFrom("Users")]
-        public string Target { get; set; }
+        public ObjectId? Target { get; set; }
 
         [OptionsFrom("Users"), WithBlankOption]
-        public string Source { get; set; }
+        public ObjectId? Source { get; set; }
 
         [OptionsFrom("Metrics"), WithBlankOption]
-        public string Metric { get; set; }
+        public ObjectId? Metric { get; set; }
 
         public Options Users
         {
-            get { return Mongo.Users.FindAll().ToOptions(x => x.Name, x => x.Name); }
+            get { return Mongo.Users.FindAll().ToOptions(x => x.Id.ToString(), x => x.Name); }
         }
 
         public Options Metrics
         {
-            get { return Mongo.Metrics.FindAll().ToOptions(x => x.Id, x => x.Name); }
+            get { return Mongo.Metrics.FindAll().ToOptions(x => x.Id.ToString(), x => x.Name); }
         }
 
-        public IEnumerable<Result> GetResults()
+        public IEnumerable<AccountabilityEvent> GetResults()
         {
-           throw new NotImplementedException();
+            var events = Mongo.Events.AsQueryable();
+            if (Target.HasValue)
+            {
+                events = events.Where(e => e.TargetId == Target.Value);
+            }
+            if (Source.HasValue)
+            {
+                events = events.Where(e => e.SourceId == Source.Value);
+            }
+            if (Metric.HasValue)
+            {
+                events = events.Where(e => e.MetricId == Metric.Value);
+            }
+            return events.ToArray();
         }
-    }
-
-    public struct Result
-    {
-        // todo
     }
 }

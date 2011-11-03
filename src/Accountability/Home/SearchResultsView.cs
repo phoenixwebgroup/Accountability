@@ -1,7 +1,10 @@
 namespace Accountability.Home
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using BclExtensionMethods;
     using HtmlTags;
+    using Metrics;
 
     public class SearchResultsView
     {
@@ -15,31 +18,32 @@ namespace Accountability.Home
         public HtmlTag GetView()
         {
             var table = Tags.Table;
-            AddHeader(table);
             AddItems(table);
             return table
-                .Id("AdminSearch")
-                .AddClass("admin");
+                .Id("Results");
         }
 
         private void AddItems(TableTag table)
         {
-            _Filters.GetResults().ForEach(i => AddItem(table, i));
+            var results = _Filters.GetResults();
+            results.ForEach(i => AddItem(table, i));
+            if(!results.Any())
+            {
+                AddNoResultsFound(table);
+            }
         }
 
-        private void AddItem(TableTag table, Result item)
+        private static void AddNoResultsFound(TableTag table)
         {
-            //var row = table.AddBodyRow();
-            //row.Attr("key", JsonUtil.ToJson(new { item.AdminType, Id = item.Id.ToString() }));
-            //row.Cell(item.AdminType.ToString());
-            //row.Cell(item.Summary);
+            var row = table.AddBodyRow();
+            row.Cell("No matches found");
         }
 
-        private static void AddHeader(TableTag table)
+        private void AddItem(TableTag table, AccountabilityEvent item)
         {
-            var header = table.AddHeaderRow();
-            header.Cell("Type");
-            header.Cell("Description");
+            var row = table.AddBodyRow();
+            row.Attr("key", JsonUtil.ToJson(new { item.GetType().Name, Target = item.TargetId.ToString(), Metric = item.MetricId.ToString(), Source = item.SourceId.ToString() }));
+            row.Cell(item.GetSummary());
         }
     }
 }
