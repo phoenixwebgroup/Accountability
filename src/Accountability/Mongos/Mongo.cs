@@ -35,5 +35,10 @@
 		{
 			get { return GetCollection<User>(); }
 		}
+
+        public static MongoCollection<AccountabilityEvent> Events
+        {
+            get { return GetCollection<AccountabilityEvent>(); }
+        }
 	}
 }

@@ -1,8 +1,10 @@
 ﻿namespace Accountability.Home
 {
 	using System.Web.Mvc;
+	using Metrics;
+	using Mongos;
 
-	public class HomeController : Controller
+    public class HomeController : Controller
 	{
 		public ViewResult Search()
 		{
@@ -13,6 +15,21 @@
         public ViewResult SearchData(SearchFilters filters)
         {
             return View(new SearchResultsView(filters));
+        }
+
+        public void GiveFeedback(GiveFeedback command)
+        {
+            Mongo.Events.Insert(command);
+        }
+
+        public void AddActionItem(AddActionItem command)
+        {
+            Mongo.Events.Insert(command);
+        }
+
+        public void ScheduleNextReview(ScheduleNextReview command)
+        {
+            Mongo.Events.Insert(command);
         }
 	}
 }
