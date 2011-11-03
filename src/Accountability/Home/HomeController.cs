@@ -17,6 +17,11 @@
             return View(new SearchResultsView(filters));
         }
 
+        public ViewResult View(SearchFilters filters)
+        {
+            return View(new MetricForm(filters));
+        }
+
         public void GiveFeedback(GiveFeedback command)
         {
             Mongo.Events.Insert(command);

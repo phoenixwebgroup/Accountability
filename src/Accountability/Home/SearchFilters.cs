@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Linq.Expressions;
     using FluentMongo.Linq;
     using HtmlTags.UI;
     using HtmlTags.UI.Attributes;
@@ -53,6 +52,19 @@
                 events = events.Where(e => e.MetricId == Metric.Value);
             }
             return events.ToList();
+        }
+
+        public List<AccountabilityEvent> Match()
+        {
+            if(!Target.HasValue || !Source.HasValue || !Metric.HasValue)
+            {
+                throw new Exception("Not enough detail");
+            }
+            return Mongo.Events.AsQueryable()
+                .Where(e => e.TargetId == Target.Value)
+                .Where(e => e.SourceId == Source.Value)
+                .Where(e => e.MetricId == Metric.Value)
+                .ToList();
         }
     }
 }
