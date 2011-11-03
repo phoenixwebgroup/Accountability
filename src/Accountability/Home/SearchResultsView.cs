@@ -1,8 +1,6 @@
 namespace Accountability.Home
 {
-    using System.Collections.Generic;
     using System.Linq;
-    using BclExtensionMethods;
     using HtmlTags;
     using Metrics;
 
@@ -27,7 +25,7 @@ namespace Accountability.Home
         {
             var results = _Filters.GetResults();
             results.ForEach(i => AddItem(table, i));
-            if(!results.Any())
+            if (!results.Any())
             {
                 AddNoResultsFound(table);
             }
@@ -42,7 +40,15 @@ namespace Accountability.Home
         private void AddItem(TableTag table, AccountabilityEvent item)
         {
             var row = table.AddBodyRow();
-            row.Attr("key", JsonUtil.ToJson(new { item.GetType().Name, Target = item.TargetId.ToString(), Metric = item.MetricId.ToString(), Source = item.SourceId.ToString() }));
+            row.Attr("key",
+                     JsonUtil.ToJson(
+                         new
+                             {
+                                 item.GetType().Name,
+                                 Target = item.TargetId.ToString(),
+                                 Metric = item.MetricId.ToString(),
+                                 Source = item.SourceId.ToString()
+                             }));
             row.Cell(item.GetSummary());
         }
     }
