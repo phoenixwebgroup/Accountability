@@ -37,7 +37,7 @@
             get { return Mongo.Metrics.FindAll().ToOptions(x => x.Id.ToString(), x => x.Name); }
         }
 
-        public IEnumerable<AccountabilityEvent> GetResults()
+        public List<AccountabilityEvent> GetResults()
         {
             var events = Mongo.Events.AsQueryable();
             if (Target.HasValue)
@@ -52,7 +52,7 @@
             {
                 events = events.Where(e => e.MetricId == Metric.Value);
             }
-            return events.ToArray();
+            return events.ToList();
         }
     }
 }
