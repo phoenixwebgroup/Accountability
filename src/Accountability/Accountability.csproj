@@ -131,6 +131,8 @@
     <Compile Include="Auth\UserInformation.cs" />
     <Compile Include="Auth\UserPrincipal.cs" />
     <Compile Include="Home\HomeController.cs" />
+    <Compile Include="Home\SearchFilters.cs" />
+    <Compile Include="Home\SearchResultsView.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
     <Compile Include="Infrastructure\ExportFilter.cs" />
     <Compile Include="Infrastructure\IConfigureOnStartup.cs" />

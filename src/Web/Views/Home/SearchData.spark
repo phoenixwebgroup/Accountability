@@ -1,0 +1,11 @@
+﻿<viewdata model="SearchResultsView"/>
+!{Model.GetView()}
+<script type="text/javascript">
+  $.pageActions.RowSelect.For('#Results', { attrName: 'key', allowMulti: false});
+
+  var original = $.rowSelect.allSettings['Results'].selectionChanged;
+  $.rowSelect.allSettings['Results'].selectionChanged = function(d){
+    original();
+    editSelected();
+  };
+</script>

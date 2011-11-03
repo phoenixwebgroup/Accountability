@@ -6,7 +6,13 @@
 	{
 		public ViewResult Search()
 		{
-			return View();
+		    var model = new SearchFilters();
+			return View(model);
 		}
+
+        public ViewResult SearchData(SearchFilters filters)
+        {
+            return View(new SearchResultsView(filters));
+        }
 	}
 }
