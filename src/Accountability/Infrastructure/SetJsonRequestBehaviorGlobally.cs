@@ -1,4 +1,4 @@
-namespace Accountability.WebApp
+namespace UISkeleton.Infrastructure
 {
 	using System.Web.Mvc;
 

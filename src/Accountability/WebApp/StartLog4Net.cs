@@ -1,11 +1,12 @@
 ﻿namespace Accountability.WebApp
 {
 	using Castle.Windsor;
+	using UISkeleton.Infrastructure;
 	using log4net.Config;
 
-	public class StartLog4Net : IRunOnApplicationStart
+	public class StartLog4Net : IConfigureOnStartup
 	{
-		public void Start(IWindsorContainer container)
+		public void Configure(IWindsorContainer container)
 		{
 			XmlConfigurator.Configure();
 		}

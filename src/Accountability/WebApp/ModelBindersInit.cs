@@ -4,10 +4,11 @@
 	using Castle.Windsor;
 	using HtmlTags.UI.ModelBinders;
 	using MongoDB.Bson;
+	using UISkeleton.Infrastructure;
 
-	public class ModelBindersInit : ModelBinderRegistryBase, IRunOnApplicationStart
+	public class ModelBindersInit : ModelBinderRegistryBase, IConfigureOnStartup
 	{
-		public void Start(IWindsorContainer container)
+		public void Configure(IWindsorContainer container)
 		{
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 			DecimalModelBinder();

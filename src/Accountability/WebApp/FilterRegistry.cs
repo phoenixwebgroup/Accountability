@@ -4,8 +4,9 @@
 	using BclExtensionMethods;
 	using Castle.Windsor;
 	using GotFour.Windsor;
+	using UISkeleton.Infrastructure;
 
-	public class FilterRegistry : ExtendedRegistryBase, IRunOnApplicationStart
+	public class FilterRegistry : ExtendedRegistryBase, IConfigureOnStartup
 	{
 		public FilterRegistry()
 		{
@@ -15,7 +16,7 @@
 			ScanMyAssemblyFor<IAuthorizationFilter>();
 		}
 
-		public void Start(IWindsorContainer container)
+		public void Configure(IWindsorContainer container)
 		{
 			Add<IResultFilter>(container);
 			Add<IActionFilter>(container);

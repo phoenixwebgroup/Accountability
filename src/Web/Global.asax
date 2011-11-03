@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="Accountability.WebApp.MvcApplication" Language="C#" %>
+﻿<%@ Application Inherits="Accountability.WebApp.WebEndpoint" Language="C#" %>

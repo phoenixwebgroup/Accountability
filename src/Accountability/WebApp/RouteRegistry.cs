@@ -3,8 +3,9 @@ namespace Accountability.WebApp
 	using System.Web.Mvc;
 	using System.Web.Routing;
 	using Castle.Windsor;
+	using UISkeleton.Infrastructure;
 
-	public class RouteRegistry : IRunOnApplicationStart
+	public class RouteRegistry : IConfigureOnStartup
 	{
 		protected static void IgnoreAxds(RouteCollection routes)
 		{
@@ -36,7 +37,7 @@ namespace Accountability.WebApp
 				);
 		}
 
-		public void Start(IWindsorContainer container)
+		public void Configure(IWindsorContainer container)
 		{
 			var routes = RouteTable.Routes;
 			RegisterRoutes(routes);

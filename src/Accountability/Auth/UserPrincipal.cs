@@ -8,6 +8,7 @@ namespace Accountability.Authentication
 	using Microsoft.Practices.ServiceLocation;
 	using Mongos;
 	using Users;
+	using Roles = Users.Roles;
 
 	public class UserPrincipal
 	{
@@ -37,6 +38,11 @@ namespace Accountability.Authentication
 		public static UserPrincipal Current
 		{
 			get { return ServiceLocator.Current.GetInstance<UserPrincipal>(); }
+		}
+
+		public bool HasRole(Roles role)
+		{
+			return User.Role == role;
 		}
 	}
 }

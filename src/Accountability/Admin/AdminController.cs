@@ -6,7 +6,9 @@
 	using MongoDB.Bson;
 	using Mongos;
 	using Users;
+	using WebApp;
 
+	[RequiresThat(Roles.Admin)]
 	public class AdminController : Controller
 	{
 		public ViewResult Index()

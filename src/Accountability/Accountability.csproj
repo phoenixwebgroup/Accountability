@@ -120,15 +120,26 @@
     <Compile Include="Admin\AdminFilters.cs" />
     <Compile Include="Admin\AdminItem.cs" />
     <Compile Include="Admin\AdminListView.cs" />
-    <Compile Include="Authentication\Authentication.cs" />
-    <Compile Include="Authentication\AuthenticationController.cs" />
-    <Compile Include="Authentication\AuthenticationModule.cs" />
-    <Compile Include="Authentication\IOpenIdUserService.cs" />
-    <Compile Include="Authentication\OpenIdHelper.cs" />
-    <Compile Include="Authentication\OpenIdUserService.cs" />
-    <Compile Include="Authentication\UserInformation.cs" />
-    <Compile Include="Authentication\UserPrincipal.cs" />
+    <Compile Include="Auth\AuthorizeAccessFilter.cs" />
+    <Compile Include="Auth\PageActionsSecurity.cs" />
+    <Compile Include="Auth\Authentication.cs" />
+    <Compile Include="Auth\AuthenticationController.cs" />
+    <Compile Include="Auth\AuthenticationModule.cs" />
+    <Compile Include="Auth\IOpenIdUserService.cs" />
+    <Compile Include="Auth\OpenIdHelper.cs" />
+    <Compile Include="Auth\OpenIdUserService.cs" />
+    <Compile Include="Auth\UserInformation.cs" />
+    <Compile Include="Auth\UserPrincipal.cs" />
     <Compile Include="Home\HomeController.cs" />
+    <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
+    <Compile Include="Infrastructure\ExportFilter.cs" />
+    <Compile Include="Infrastructure\IConfigureOnStartup.cs" />
+    <Compile Include="Infrastructure\MySparkView.cs" />
+    <Compile Include="Infrastructure\SetJsonRequestBehaviorGlobally.cs" />
+    <Compile Include="Infrastructure\SetupControllerFactory.cs" />
+    <Compile Include="Infrastructure\TableFilter.cs" />
+    <Compile Include="Infrastructure\ValidateContainerOnStartup.cs" />
+    <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
     <Compile Include="Users\Roles.cs" />
     <Compile Include="Users\Source.cs" />
@@ -153,24 +164,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Aggregate.cs" />
-    <Compile Include="WebApp\AccountabilityContainer.cs" />
-    <Compile Include="WebApp\ActionDescriptorExtensions.cs" />
+    <Compile Include="WebApp\ConfigureConventionsContentPathing.cs" />
+    <Compile Include="WebApp\ConfigureSpark.cs" />
     <Compile Include="WebApp\HtmlAttributeEncodingNot.cs" />
-    <Compile Include="WebApp\ContainerTestExtensions.cs" />
     <Compile Include="WebApp\FilterRegistry.cs" />
     <Compile Include="WebApp\FubuRegistry.cs" />
-    <Compile Include="WebApp\IRunOnApplicationStart.cs" />
     <Compile Include="WebApp\ModelBindersInit.cs" />
-    <Compile Include="WebApp\MvcApplication.cs" />
-    <Compile Include="WebApp\MySparkView.cs" />
+    <Compile Include="WebApp\WebEndpoint.cs" />
     <Compile Include="WebApp\NoPageActionsSecurity.cs" />
     <Compile Include="WebApp\ObjectIdModelBinder.cs" />
+    <Compile Include="WebApp\RequiresThatAttribute.cs" />
     <Compile Include="WebApp\RouteRegistry.cs" />
-    <Compile Include="WebApp\SetJsonRequestBehaviorGlobally.cs" />
     <Compile Include="WebApp\HtmlConventions.cs" />
     <Compile Include="WebApp\StartLog4Net.cs" />
     <Compile Include="WebApp\WebRegistry.cs" />
-    <Compile Include="WebApp\WindsorControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

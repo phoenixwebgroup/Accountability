@@ -3,6 +3,7 @@
 	using System.Web.Mvc;
 	using Authentication;
 	using GotFour.Windsor;
+	using UISkeleton.Infrastructure;
 
 	public class WebRegistry : ExtendedRegistryBase
 	{

@@ -1,4 +1,4 @@
-namespace Accountability.WebApp
+namespace UISkeleton.Infrastructure
 {
 	using System.Web.Mvc;
 	using Spark.Web.Mvc;
@@ -14,7 +14,7 @@ namespace Accountability.WebApp
 		{
 			get
 			{
-				var result = base.Html;
+				var result = base.Html as HtmlHelper<TModel>;
 				if (result == null && base.Html != null)
 				{
 					result = new HtmlHelper<TModel>(base.Html.ViewContext,

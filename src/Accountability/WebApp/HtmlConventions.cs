@@ -1,6 +1,5 @@
 namespace Accountability.WebApp
 {
-	using Castle.Windsor;
 	using FubuMVC.UI.Configuration;
 	using HtmlTags;
 	using HtmlTags.Constants;
@@ -8,10 +7,8 @@ namespace Accountability.WebApp
 	using HtmlTags.UI.Attributes;
 	using HtmlTags.UI.AutoComplete;
 	using HtmlTags.UI.Builders;
-	using HtmlTags.UI.Conventions;
-	using HtmlTags.UI.Helpers;
 
-	public class HtmlConventions : HtmlConventionsRegistryBase, IRunOnApplicationStart
+	public class HtmlConventions : HtmlConventionsRegistryBase
 	{
 		public HtmlConventions()
 		{
@@ -64,17 +61,6 @@ namespace Accountability.WebApp
 			{
 				tag.Attr(HtmlAttributeConstants.Name, request.ElementId);
 			}
-		}
-
-		public void Start(IWindsorContainer container)
-		{
-			BaseElementBuilder.Security = new NoElementBuilderSecurity();
-			SaveOrCancelConvention.Convention = new SaveOrCancelButtonsConvention();
-			LabelingConvention.Convention = new SpaceBeforeCapitalsLabelingConvention();
-			FiltersConventions.FilterButtonConvention = new FiltersFilterButtonConvention();
-			FiltersConventions.ResetButtonConvention = new FiltersResetButtonConvention();
-			PageActions.Convention = new PageActionConvention();
-			PageActionConvention.Security = new NoPageActionsSecurity();
 		}
 	}
 }
