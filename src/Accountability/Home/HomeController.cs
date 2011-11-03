@@ -17,7 +17,7 @@
             return View(new SearchResultsView(filters));
         }
 
-        public ViewResult View(SearchFilters filters)
+        public ViewResult Metric(SearchFilters filters)
         {
             return View(new MetricForm(filters));
         }
