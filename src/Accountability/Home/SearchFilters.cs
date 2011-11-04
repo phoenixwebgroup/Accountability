@@ -28,12 +28,28 @@
 
         public Options Users
         {
-            get { return Mongo.Users.FindAll().ToOptions(x => x.Id.ToString(), x => x.Name); }
+            get
+            {
+                var options = Mongo.Users
+                    .FindAll()
+                    .OrderBy(x => x.Name)
+                    .ToOptions(x => x.Id.ToString(), x => x.Name);
+                options.Insert(0, new OptionItem("", ""));
+                return options;
+            }
         }
 
         public Options Metrics
         {
-            get { return Mongo.Metrics.FindAll().ToOptions(x => x.Id.ToString(), x => x.Name); }
+            get
+            {
+                var options = Mongo.Metrics
+                    .FindAll()
+                    .OrderBy(x => x.Name)
+                    .ToOptions(x => x.Id.ToString(), x => x.Name);
+                options.Insert(0, new OptionItem("", ""));
+                return options;
+            }
         }
 
         public List<AccountabilityEvent> GetResults()
@@ -56,7 +72,7 @@
 
         public List<AccountabilityEvent> Match()
         {
-            if(!Target.HasValue || !Source.HasValue || !Metric.HasValue)
+            if (!Target.HasValue || !Source.HasValue || !Metric.HasValue)
             {
                 throw new Exception("Not enough detail");
             }

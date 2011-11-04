@@ -2,28 +2,34 @@
 <viewdata model="SearchFilters"/>
 <content:head>
   <Script src="~/Views/Home/Search.js"/>
+  <script>
+    var initialModel = <Serialize Object="Model"/>;
+  </script>
 </content:head>
 
 <div class="Filters">
-  <form action="Home/SearchData" method="post" id="FilterForm">
-    <table>
-      <tr>
-        <td>Target</td>
-        <td>!{Html.InputFor(x => x.Target)}</td>
-      </tr>
-      <tr>
-        <td>Source</td>
-        <td>!{Html.InputFor(x => x.Source)}</td>
-      </tr>
-      <tr>
-        <td>Metric</td>
-        <td>!{Html.InputFor(x => x.Metric)}</td>
-      </tr>
-    </table>
-  </form>
+  <table>
+    <tr>
+      <td>Target</td>
+      <td>
+        <select data-bind="value: Target, options: Users, optionsText: 'Text'"></select>
+      </td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>
+        <select data-bind="value: Source, options: Users, optionsText: 'Text'"></select>
+      </td>
+    </tr>
+    <tr>
+      <td>Metric</td>
+      <td>
+        <select data-bind="value: Metric, options: Metrics, optionsText: 'Text'"></select>
+      </td>
+    </tr>
+  </table>
 </div>
 <br style="clear: both"/>
-!{Ajax.FilterForm("#FilterForm", "#search")}
 
 <div id="search" style="width: 400px; float:left">
   <AjaxLoading />
