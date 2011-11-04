@@ -105,6 +105,7 @@
       <HintPath>..\packages\Rx-Main.1.0.10621\lib\Net4\System.Reactive.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -135,9 +136,12 @@
     <Compile Include="Home\SearchFilters.cs" />
     <Compile Include="Home\SearchResultsView.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
+    <Compile Include="Infrastructure\DateTimeConverter.cs" />
     <Compile Include="Infrastructure\ExportFilter.cs" />
     <Compile Include="Infrastructure\IConfigureOnStartup.cs" />
     <Compile Include="Infrastructure\MySparkView.cs" />
+    <Compile Include="Infrastructure\NullableBooleanConverter.cs" />
+    <Compile Include="Infrastructure\Serialize.cs" />
     <Compile Include="Infrastructure\SetJsonRequestBehaviorGlobally.cs" />
     <Compile Include="Infrastructure\SetupControllerFactory.cs" />
     <Compile Include="Infrastructure\TableFilter.cs" />
