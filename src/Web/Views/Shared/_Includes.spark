@@ -35,7 +35,7 @@
 <Script src="spinner.js"/>
 <Script src="jquery.qtip-1.0.0-rc3.min.js"/>
 <Script src="jquery.tmpl.min.js"/>
-<Script src="knockout-1.2.1.debug.js"/>
+<Script src="knockout-1.3.0beta.js"/>
 <Script src="knockout.mapping-latest.debug.js"/>
 <Script src="KnockoutHelpers.js"/>
 <Script src="JSLINQ.js"/>
