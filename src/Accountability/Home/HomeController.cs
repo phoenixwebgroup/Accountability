@@ -1,6 +1,7 @@
 ﻿namespace Accountability.Home
 {
-	using System.Web.Mvc;
+    using System.Linq;
+    using System.Web.Mvc;
 	using Metrics;
 	using Mongos;
 
@@ -12,9 +13,22 @@
 			return View(model);
 		}
 
-        public ViewResult SearchData(SearchFilters filters)
+        public JsonResult SearchData(SearchFilters filters)
         {
-            return View(new SearchResultsView(filters));
+            var results = filters
+                .GetResults()
+                .Select(r => new
+                                 {
+                                     key = new
+                                               {
+                                                   r.GetType().Name,
+                                                   Target = r.TargetId.ToString(),
+                                                   Metric = r.MetricId.ToString(),
+                                                   Source = r.SourceId.ToString()
+                                               },
+                                     summary = r.GetSummary()
+                                 });
+            return Json(results);
         }
 
         public ViewResult Metric(SearchFilters filters)
