@@ -134,7 +134,6 @@
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\MetricForm.cs" />
     <Compile Include="Home\SearchFilters.cs" />
-    <Compile Include="Home\SearchResultsView.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
     <Compile Include="Infrastructure\DateTimeConverter.cs" />
     <Compile Include="Infrastructure\ExportFilter.cs" />

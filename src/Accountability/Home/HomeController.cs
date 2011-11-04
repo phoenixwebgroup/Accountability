@@ -28,6 +28,14 @@
                                                },
                                      summary = r.GetSummary()
                                  });
+            return Json(new[]
+                            {
+                                new
+                                    {
+                                        key = new {},
+                                        summary = "Test"
+                                    }
+                            });
             return Json(results);
         }
 
