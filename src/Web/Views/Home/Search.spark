@@ -43,14 +43,41 @@
     </tbody>
   </table>
 </div>
-<div id="editor" style="float:left">
+<div id="editor" style="float:left" data-bind="template: { name: 'metricTemplate', data: details }">
+  <i data-bind="visible: details.inProgress">
+    <b>Loading...</b>
+  </i>
 </div>
 
 <!-- todo not working with inline template? -->
 <script id="resultTemplate" type="text/html">
-  <tr data-bind="attr: { 'businesskey' : key }">
+  <tr data-bind="click: function() { $root.selectedDetail($data.key); }">
     <td>
       <span data-bind="text: summary"></span>
     </td>
   </tr>
+</script>
+
+<script id="metricTemplate" type="text/html">
+  <table>
+    <tr>
+      <td>Target</td>
+      <td>
+        <span data-bind="text: Targets"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Sources</td>
+      <td>
+        <span data-bind="text: Sources"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Metric</td>
+      <td>
+        <span data-bind="text: Metric"></span>
+      </td>
+    </tr>
+  </table>
+  breakouts
 </script>

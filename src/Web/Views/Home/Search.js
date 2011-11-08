@@ -5,17 +5,28 @@ $(function () {
     var ViewModel = function (data) {
         ko.mapping.fromJS(data, {}, this);
 
-        this.results = asyncDependentObservable(function() {
+        this.results = asyncDependentObservable(function () {
             var query = {
                 target: this.Target() ? this.Target().Value : "",
                 source: this.Source() ? this.Source().Value : "",
                 metric: this.Metric() ? this.Metric().Value : ""
             };
             return $.ajax({
-                    url: "Home/SearchData",
-                    dataType: "json",
-                    data: query
-                }).pipe(function(r) { return r; });
+                url: "Home/SearchData",
+                dataType: "json",
+                data: query
+            }).pipe(function (r) { return r; });
+        }, this);
+
+        this.selectedDetail = ko.observable(null);
+
+        this.details = asyncDependentObservable(function () {
+            if (this.selectedDetail() == null) return;
+            return $.ajax({
+                url: "Home/Metric",
+                dataType: "json",
+                data: this.selectedDetail()
+            }).pipe(function (r) { return r; });
         }, this);
     };
 

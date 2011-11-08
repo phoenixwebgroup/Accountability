@@ -28,6 +28,7 @@
                                                },
                                      summary = r.GetSummary()
                                  });
+            // todo remove this debug code
             return Json(new[]
                             {
                                 new
@@ -39,9 +40,10 @@
             return Json(results);
         }
 
-        public ViewResult Metric(SearchFilters filters)
+        public JsonResult Metric(SearchFilters filters)
         {
-            return View(new MetricForm(filters));
+            var events = filters.Match();
+            return Json(new MetricView(events));
         }
 
         public void GiveFeedback(GiveFeedback command)
