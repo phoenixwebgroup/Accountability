@@ -1,6 +1,7 @@
 ﻿namespace Accountability.Mongos
 {
 	using Metrics;
+	using MongoDB.Bson.Serialization;
 	using MongoDB.Driver;
 	using Properties;
 	using Users;
@@ -15,6 +16,9 @@
 			Init();
 			Server = MongoServer.Create(Settings.Default.MongoServerLocation);
 			Database = Server.GetDatabase(Settings.Default.MongoDatabaseName);
+			BsonClassMap.RegisterClassMap<GiveFeedback>();
+			BsonClassMap.RegisterClassMap<AddActionItem>();
+			BsonClassMap.RegisterClassMap<ScheduleNextReview>();
 		}
 
 		public static void Init()

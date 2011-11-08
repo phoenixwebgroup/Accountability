@@ -140,6 +140,7 @@
     <Compile Include="Infrastructure\IConfigureOnStartup.cs" />
     <Compile Include="Infrastructure\MySparkView.cs" />
     <Compile Include="Infrastructure\NullableBooleanConverter.cs" />
+    <Compile Include="Infrastructure\ObjectIdParser.cs" />
     <Compile Include="Infrastructure\Serialize.cs" />
     <Compile Include="Infrastructure\SetJsonRequestBehaviorGlobally.cs" />
     <Compile Include="Infrastructure\SetupControllerFactory.cs" />

@@ -2,36 +2,36 @@
 
 $(function () {
 
-    var ViewModel = function (data) {
-        ko.mapping.fromJS(data, {}, this);
+	var ViewModel = function (data) {
+		ko.mapping.fromJS(data, {}, this);
+		
+		this.results = asyncDependentObservable(function () {
+			var query = {
+				target: this.Target(),
+				source: this.Source(),
+				metric: this.Metric()
+			};
+			return $.ajax({
+				url: "Home/SearchData",
+				dataType: "json",
+				data: query
+			}).pipe(function (r) { return r; });
+		}, this);
 
-        this.results = asyncDependentObservable(function () {
-            var query = {
-                target: this.Target() ? this.Target().Value : "",
-                source: this.Source() ? this.Source().Value : "",
-                metric: this.Metric() ? this.Metric().Value : ""
-            };
-            return $.ajax({
-                url: "Home/SearchData",
-                dataType: "json",
-                data: query
-            }).pipe(function (r) { return r; });
-        }, this);
+		this.selectedDetail = ko.observable(null);
 
-        this.selectedDetail = ko.observable(null);
+		this.details = asyncDependentObservable(function () {
+			if (this.selectedDetail() == null) return;
+			return $.ajax({
+				url: "Home/Metric",
+				dataType: "json",
+				data: this.selectedDetail()
+			}).pipe(function (r) { return r; });
+		}, this);
+	};
 
-        this.details = asyncDependentObservable(function () {
-            if (this.selectedDetail() == null) return;
-            return $.ajax({
-                url: "Home/Metric",
-                dataType: "json",
-                data: this.selectedDetail()
-            }).pipe(function (r) { return r; });
-        }, this);
-    };
-
-    viewModel = new ViewModel(initialModel);
-    ko.applyBindings(viewModel);
+	viewModel = new ViewModel(initialModel);
+	ko.applyBindings(viewModel);
 });
 
 // todo KO 1.3 is supposed to have something like this
