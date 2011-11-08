@@ -23,7 +23,7 @@ namespace Accountability.Infrastructure
 		{
 			if (dictionary.ContainsKey("__bool?__"))
 			{
-				return (bool?) dictionary["__DateTime__"];
+				return (bool?)dictionary["__bool?__"];
 			}
 			return null;
 		}
