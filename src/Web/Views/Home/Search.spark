@@ -1,8 +1,9 @@
 ﻿<use master="Site"/>
 <viewdata model="SearchFilters"/>
 <content:head>
-  <Script src="~/Views/Home/Search.js"/>
-  <script>
+	<Script src="~/Views/Home/Search.js"/>
+	<Stylesheet src="~/Views/Home/Search.css"/>
+	<script>
     var initialModel = <Serialize Object="Model"/>;
   </script>
 </content:head>
@@ -53,7 +54,7 @@
 
 <!-- todo not working with inline template? -->
 <script id="resultTemplate" type="text/html">
-	<tr data-bind="click: function() { $root.selectedDetail($data.Key); }">
+	<tr data-bind="click: function() { $root.selectedDetail($data.Key); }" class="searchResult">
 		<td>
 			<span data-bind="text: Summary"></span>
 		</td>

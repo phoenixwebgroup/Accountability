@@ -250,6 +250,7 @@
     <Content Include="Views\Admin\Index.js" />
     <Content Include="Views\Bindings.xml" />
     <Content Include="Scripts\ko.sortableList.js" />
+    <Content Include="Views\Home\Search.css" />
     <Content Include="Views\Home\Search.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />

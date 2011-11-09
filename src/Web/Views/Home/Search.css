@@ -1,0 +1,9 @@
+﻿.searchResult
+{
+	cursor: pointer;
+}
+
+.searchResult :hover
+{
+	background-color: #ccc;
+}
