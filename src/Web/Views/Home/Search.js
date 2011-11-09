@@ -3,14 +3,19 @@
 $(function () {
 
 	var ViewModel = function (data) {
+		var root = this;
 		ko.mapping.fromJS(data, {}, this);
-		
-		this.results = asyncDependentObservable(function () {
-			var query = {
-				target: this.Target(),
-				source: this.Source(),
-				metric: this.Metric()
+
+		this.query = ko.dependentObservable(function () {
+			return {
+				target: root.Target(),
+				source: root.Source(),
+				metric: root.Metric()
 			};
+		}, this);
+
+		this.results = asyncDependentObservable(function () {
+			var query = root.query();
 			return $.ajax({
 				url: "Home/SearchData",
 				dataType: "json",
@@ -21,13 +26,24 @@ $(function () {
 		this.selectedDetail = ko.observable(null);
 
 		this.details = asyncDependentObservable(function () {
-			if (this.selectedDetail() == null) return;
+			if (root.selectedDetail() == null) return;
 			return $.ajax({
 				url: "Home/Metric",
 				dataType: "json",
-				data: this.selectedDetail()
+				data: root.selectedDetail()
 			}).pipe(function (r) { return r; });
 		}, this);
+
+		this.ShowAdd = ko.dependentObservable(function () {
+			var hasTarget = root.Target() != undefined;
+			var hasSource = root.Source() != undefined;
+			var hasMetric = root.Metric() != undefined;
+			return hasTarget && hasSource && hasMetric; // check truthiness
+		}, this);
+
+		this.AddNew = function () {
+			root.selectedDetail(root.query());
+		};
 	};
 
 	viewModel = new ViewModel(initialModel);
@@ -36,25 +52,25 @@ $(function () {
 
 // todo KO 1.3 is supposed to have something like this
 function asyncDependentObservable(evaluator, owner) {
-    var result = ko.observable(), currentDeferred;
-    result.inProgress = ko.observable(false); // Track whether we're waiting for a result
+	var result = ko.observable(), currentDeferred;
+	result.inProgress = ko.observable(false); // Track whether we're waiting for a result
 
-    ko.dependentObservable(function () {
-        // Abort any in-flight evaluation to ensure we only notify with the latest value
-        if (currentDeferred) { currentDeferred.reject(); }
+	ko.dependentObservable(function () {
+		// Abort any in-flight evaluation to ensure we only notify with the latest value
+		if (currentDeferred) { currentDeferred.reject(); }
 
-        var evaluatorResult = evaluator.call(owner);
-        // Cope with both asynchronous and synchronous values
-        if (evaluatorResult && (typeof evaluatorResult.done == "function")) { // Async
-            result.inProgress(true);
-            currentDeferred = $.Deferred().done(function (data) {
-                result.inProgress(false);
-                result(data);
-            });
-            evaluatorResult.done(currentDeferred.resolve);
-        } else // Sync
-            result(evaluatorResult);
-    });
+		var evaluatorResult = evaluator.call(owner);
+		// Cope with both asynchronous and synchronous values
+		if (evaluatorResult && (typeof evaluatorResult.done == "function")) { // Async
+			result.inProgress(true);
+			currentDeferred = $.Deferred().done(function (data) {
+				result.inProgress(false);
+				result(data);
+			});
+			evaluatorResult.done(currentDeferred.resolve);
+		} else // Sync
+			result(evaluatorResult);
+	});
 
-    return result;
+	return result;
 }

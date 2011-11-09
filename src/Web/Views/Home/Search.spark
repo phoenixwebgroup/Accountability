@@ -32,6 +32,9 @@
 </div>
 <br style="clear: both"/>
 
+<input type="button" value="New" data-bind="visible: ShowAdd, click: AddNew"></input>
+<br style="clear: both"/>
+
 <div id="search" style="width: 400px; float:left">
   <i data-bind="visible: results.inProgress">
     <b>Loading...</b>
