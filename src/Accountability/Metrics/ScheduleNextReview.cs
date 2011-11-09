@@ -8,6 +8,7 @@ namespace Accountability.Metrics
 
 		public override string GetSummary()
 		{
+			// todo time until
 			return "Next review: " + ReviewDate.ToShortDateString();
 		}
 	}

@@ -13,9 +13,11 @@
 			      		Metric = @event.MetricId.ToString(),
 			      		Source = @event.SourceId.ToString()
 			      	};
+			Metric = @event.MetricId.GetMetricName();
 			Summary = @event.GetSummary();
 		}
 
+		public string Metric { get; set; }
 		public string Summary { get; set; }
 
 		public object Key { get; set; }

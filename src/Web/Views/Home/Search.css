@@ -1,9 +1,9 @@
-﻿.searchResult
+﻿#search
 {
 	cursor: pointer;
 }
 
-.searchResult :hover
+#search tbody tr:hover
 {
 	background-color: #ccc;
 }

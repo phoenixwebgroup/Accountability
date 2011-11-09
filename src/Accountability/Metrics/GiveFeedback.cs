@@ -1,6 +1,7 @@
 namespace Accountability.Metrics
 {
 	using BclExtensionMethods;
+	using BclExtensionMethods.Friendly;
 
 	public class GiveFeedback : AccountabilityEvent
 	{
@@ -9,7 +10,7 @@ namespace Accountability.Metrics
 
 		public override string GetSummary()
 		{
-			return string.Format("Rating ({0}): {1} {2}", Date, Rating, Notes.Truncate(100));
+			return string.Format("{1} ({0}): {2}", Date.TimeSince(), Rating, Notes.Truncate(100));
 		}
 	}
 }

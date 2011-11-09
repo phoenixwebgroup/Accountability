@@ -10,12 +10,12 @@
 		public static Lazy<MetricsById> MetricsById = new Lazy<MetricsById>(() => new MetricsById());
 		public static Lazy<SourcesById> SourcesById = new Lazy<SourcesById>(() => new SourcesById());
 
-		public static Metric GetMetric(ObjectId metricId)
+		public static Metric GetMetric(this ObjectId metricId)
 		{
 			return MetricsById.Value[metricId];
 		}
 
-		public static string GetMetricName(ObjectId metricId)
+		public static string GetMetricName(this ObjectId metricId)
 		{
 			var metric = MetricsById.Value[metricId];
 			if (metric == null)
@@ -25,12 +25,12 @@
 			return metric.Name;
 		}
 
-		public static Source GetSource(ObjectId sourceId)
+		public static Source GetSource(this ObjectId sourceId)
 		{
 			return SourcesById.Value[sourceId];
 		}
 
-		public static string GetSourceName(ObjectId sourceId)
+		public static string GetSourceName(this ObjectId sourceId)
 		{
 			var source = SourcesById.Value[sourceId];
 			if (source == null)

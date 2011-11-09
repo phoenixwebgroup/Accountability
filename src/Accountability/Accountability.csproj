@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BclExtensionMethods">
-      <HintPath>..\packages\DotNetExtensions-Base.1.1.4199.28849\lib\net40\BclExtensionMethods.dll</HintPath>
+    <Reference Include="BclExtensionMethods, Version=1.1.4324.20196, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetExtensions-Base.1.1.4324.20196\lib\net40\BclExtensionMethods.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

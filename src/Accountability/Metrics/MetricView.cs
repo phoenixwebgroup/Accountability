@@ -28,9 +28,8 @@
 			get
 			{
 				return _Events
-					.Select(e => e.SourceId)
-					.Distinct()
-					.Select(id => Mongo.Users.FindOneById(id).Name);
+					.Select(e => e.SourceId.GetSourceName())
+					.Distinct();
 			}
 		}
 
@@ -39,9 +38,8 @@
 			get
 			{
 				return _Events
-					.Select(e => e.TargetId)
-					.Distinct()
-					.Select(id => Mongo.Users.FindOneById(id).Name);
+					.Select(e => e.TargetId.GetSourceName())
+					.Distinct();
 			}
 		}
 

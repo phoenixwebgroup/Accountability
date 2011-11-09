@@ -71,7 +71,9 @@
 			{
 				events = events.Where(e => e.MetricId == metricId.Value);
 			}
-			return events.ToList();
+			return events
+				.OrderByDescending(o => o.Date)
+				.ToList();
 		}
 
 		public List<AccountabilityEvent> Match()
