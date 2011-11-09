@@ -53,9 +53,9 @@
 
 <!-- todo not working with inline template? -->
 <script id="resultTemplate" type="text/html">
-	<tr data-bind="click: function() { $root.selectedDetail($data.key); }">
+	<tr data-bind="click: function() { $root.selectedDetail($data.Key); }">
 		<td>
-			<span data-bind="text: summary"></span>
+			<span data-bind="text: Summary"></span>
 		</td>
 	</tr>
 </script>

@@ -15,28 +15,9 @@
 
         public JsonResult SearchData(SearchFilters filters)
         {
-            var results = filters
-                .GetResults()
-                .Select(r => new
-                                 {
-                                     key = new
-                                               {
-                                                   r.GetType().Name,
-                                                   Target = r.TargetId.ToString(),
-                                                   Metric = r.MetricId.ToString(),
-                                                   Source = r.SourceId.ToString()
-                                               },
-                                     summary = r.GetSummary()
-                                 });
-            // todo remove this debug code
-            return Json(new[]
-                            {
-                                new
-                                    {
-                                        key = new {},
-                                        summary = "Test"
-                                    }
-                            });
+        	var results = filters
+        		.GetResults()
+        		.Select(r => new SearchJson(r));
             return Json(results);
         }
 
