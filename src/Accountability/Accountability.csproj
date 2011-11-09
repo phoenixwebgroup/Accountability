@@ -148,6 +148,10 @@
     <Compile Include="Infrastructure\TableFilter.cs" />
     <Compile Include="Infrastructure\ValidateContainerOnStartup.cs" />
     <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
+    <Compile Include="Metrics\AccountabilityEventJson.cs" />
+    <Compile Include="Metrics\AddActionItemJson.cs" />
+    <Compile Include="Metrics\GiveFeedbackJson.cs" />
+    <Compile Include="Metrics\ScheduleNextReviewJson.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
     <Compile Include="Users\Roles.cs" />
     <Compile Include="Users\Source.cs" />

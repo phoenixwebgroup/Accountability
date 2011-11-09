@@ -1,52 +1,56 @@
 ﻿namespace Accountability.Metrics
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Mongos;
+	using System.Collections.Generic;
+	using System.Linq;
+	using Mongos;
 
-    public class MetricView
-    {
-        private readonly List<AccountabilityEvent> _Events;
+	public class MetricView
+	{
+		private readonly List<AccountabilityEvent> _Events;
 
-        public MetricView(IEnumerable<AccountabilityEvent> events)
-        {
-            _Events = events.ToList();
-            ActionItems = _Events.OfType<AddActionItem>();
-            Feedback = _Events.OfType<GiveFeedback>();
-            ReviewDates = _Events.OfType<ScheduleNextReview>();
-            Metric = _Events.Any()
-                         ? Mongo.Metrics.FindOneById(_Events.First().MetricId).Name
-                         : string.Empty;
-        }
+		public MetricView(IEnumerable<AccountabilityEvent> events)
+		{
+			_Events = events.ToList();
+			ActionItems = _Events.OfType<AddActionItem>()
+				.Select(a => new AddActionItemJson(a));
+			Feedback = _Events.OfType<GiveFeedback>()
+				.Select(a => new GiveFeedbackJson(a));
+			ReviewDates = _Events.OfType<ScheduleNextReview>()
+				.Select(a => new ScheduleNextReviewJson(a));
 
-        public IEnumerable<string> Sources
-        {
-            get
-            {
-                return _Events
-                    .Select(e => e.SourceId)
-                    .Distinct()
-                    .Select(id => Mongo.Users.FindOneById(id).Name);
-            }
-        }
+			Metric = _Events.Any()
+			         	? Mongo.Metrics.FindOneById(_Events.First().MetricId).Name
+			         	: string.Empty;
+		}
 
-        public IEnumerable<string> Targets
-        {
-            get
-            {
-                return _Events
-                    .Select(e => e.TargetId)
-                    .Distinct()
-                    .Select(id => Mongo.Users.FindOneById(id).Name);
-            }
-        }
+		public IEnumerable<string> Sources
+		{
+			get
+			{
+				return _Events
+					.Select(e => e.SourceId)
+					.Distinct()
+					.Select(id => Mongo.Users.FindOneById(id).Name);
+			}
+		}
 
-        public string Metric { get; set; }
+		public IEnumerable<string> Targets
+		{
+			get
+			{
+				return _Events
+					.Select(e => e.TargetId)
+					.Distinct()
+					.Select(id => Mongo.Users.FindOneById(id).Name);
+			}
+		}
 
-        public IEnumerable<AddActionItem> ActionItems { get; set; }
+		public string Metric { get; set; }
 
-        public IEnumerable<GiveFeedback> Feedback { get; set; }
+		public IEnumerable<AddActionItemJson> ActionItems { get; set; }
 
-        public IEnumerable<ScheduleNextReview> ReviewDates { get; set; }
-    }
+		public IEnumerable<GiveFeedbackJson> Feedback { get; set; }
+
+		public IEnumerable<ScheduleNextReviewJson> ReviewDates { get; set; }
+	}
 }
