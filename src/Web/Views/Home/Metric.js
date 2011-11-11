@@ -1,8 +1,10 @@
-﻿var Metric = function (data, query) {
+﻿var Metric = function (data) {
 	var self = this;
-	var parameters = ko.toJS(query);
 	ko.mapping.fromJS(data, {}, this);
-
+	var parameters = {
+		targetId: self.TargetId(),
+		metricId: self.MetricId()
+	};
 	this.NewFeedback = ko.observable(getBlankFeedback());
 
 	this.saveFeedback = function () {

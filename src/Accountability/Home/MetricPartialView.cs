@@ -62,6 +62,7 @@ namespace Accountability.Home
                 return new
                            {
                                Source = UserPrincipal.Current.User.Name,
+                               SourceId = UserPrincipal.Current.User.Id.ToString(),
                                Date = DateTime.Today,
                                Notes = "",
                                Rating = ""

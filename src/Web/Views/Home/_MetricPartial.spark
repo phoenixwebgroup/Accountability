@@ -5,13 +5,13 @@
     <tr>
       <td>Target</td>
       <td>
-        <span data-bind="text: Targets"></span>
+        <span data-bind="text: Target"></span>
       </td>
     </tr>
     <tr>
       <td>Sources</td>
       <td>
-        <span data-bind="text: Sources"></span>
+        <span data-bind="text: Source"></span>
       </td>
     </tr>
     <tr>
