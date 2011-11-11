@@ -23,8 +23,7 @@
 
         public JsonResult Metric(SearchFilters filters)
         {
-            var events = filters.Match();
-            return Json(new MetricView(events));
+            return Json(new MetricView(filters));
         }
 
         public void GiveFeedback(GiveFeedback command)

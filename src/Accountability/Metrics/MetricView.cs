@@ -1,54 +1,48 @@
 ﻿namespace Accountability.Metrics
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using Mongos;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Home;
+    using Infrastructure;
 
-	public class MetricView
-	{
-		private readonly List<AccountabilityEvent> _Events;
+    public class MetricView
+    {
+        public MetricView(SearchFilters filters)
+        {
+            var events = filters.Match();
+            SourceId = filters.SourceId;
+            TargetId = filters.TargetId;
+            MetricId = filters.MetricId;
+            ActionItems = events.OfType<AddActionItem>().Select(a => new AddActionItemJson(a));
+            Feedback = events.OfType<GiveFeedback>().Select(a => new GiveFeedbackJson(a));
+            ReviewDates = events.OfType<ScheduleNextReview>().Select(a => new ScheduleNextReviewJson(a));
+        }
 
-		public MetricView(IEnumerable<AccountabilityEvent> events)
-		{
-			_Events = events.ToList();
-			ActionItems = _Events.OfType<AddActionItem>()
-				.Select(a => new AddActionItemJson(a));
-			Feedback = _Events.OfType<GiveFeedback>()
-				.Select(a => new GiveFeedbackJson(a));
-			ReviewDates = _Events.OfType<ScheduleNextReview>()
-				.Select(a => new ScheduleNextReviewJson(a));
+        public string SourceId { get; set; }
 
-			Metric = _Events.Any()
-			         	? Mongo.Metrics.FindOneById(_Events.First().MetricId).Name
-			         	: string.Empty;
-		}
+        public string Source
+        {
+            get { return SourceId.ParseObjectId().Value.GetSourceName(); }
+        }
 
-		public IEnumerable<string> Sources
-		{
-			get
-			{
-				return _Events
-					.Select(e => e.SourceId.GetSourceName())
-					.Distinct();
-			}
-		}
+        public string TargetId { get; set; }
 
-		public IEnumerable<string> Targets
-		{
-			get
-			{
-				return _Events
-					.Select(e => e.TargetId.GetSourceName())
-					.Distinct();
-			}
-		}
+        public string Target
+        {
+            get { return TargetId.ParseObjectId().Value.GetSourceName(); }
+        }
 
-		public string Metric { get; set; }
+        public string MetricId { get; set; }
 
-		public IEnumerable<AddActionItemJson> ActionItems { get; set; }
+        public string Metric
+        {
+            get { return MetricId.ParseObjectId().Value.GetMetricName(); }
+        }
 
-		public IEnumerable<GiveFeedbackJson> Feedback { get; set; }
+        public IEnumerable<AddActionItemJson> ActionItems { get; set; }
 
-		public IEnumerable<ScheduleNextReviewJson> ReviewDates { get; set; }
-	}
+        public IEnumerable<GiveFeedbackJson> Feedback { get; set; }
+
+        public IEnumerable<ScheduleNextReviewJson> ReviewDates { get; set; }
+    }
 }
