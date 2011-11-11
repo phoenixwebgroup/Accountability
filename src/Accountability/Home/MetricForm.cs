@@ -29,6 +29,7 @@ namespace Accountability.Home
 
             row = table.AddBodyRow();
             row.Cell("Source:");
+            // todo Ability to view from all sources
             row.Cell().Nest(Tags.Span.DataBind("text: Source"));
 
             row = table.AddBodyRow();
