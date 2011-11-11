@@ -3,22 +3,12 @@ namespace Accountability.Home
     using System;
     using HtmlTags;
     using HtmlTags.Extensions;
-    using Metrics;
+    using Infrastructure;
 
     public class MetricForm
     {
-        private readonly SearchFilters _Filters;
-        private MetricView _Metric;
-
-        public MetricForm(SearchFilters filters)
-        {
-            _Filters = filters;
-        }
-
         public HtmlTag GetView()
         {
-            var events = _Filters.Match();
-            _Metric = new MetricView(events);
             var div = Tags.Div;
             AddCriteria(div);
             AddReviewDates(div);
@@ -32,15 +22,15 @@ namespace Accountability.Home
             var table = Tags.Table;
             var row = table.AddBodyRow();
             row.Cell("Target");
-            row.Cell(string.Join(", ", _Metric.Targets));
+            row.Cell().Nest(Tags.Span.DataBind("text: Target"));
 
             row = table.AddBodyRow();
             row.Cell("Source");
-            row.Cell(string.Join(", ", _Metric.Sources));
+            row.Cell().Nest(Tags.Span.DataBind("text: Source"));
 
             row = table.AddBodyRow();
             row.Cell("Metric");
-            row.Cell(_Metric.Metric);
+            row.Cell().Nest(Tags.Span.DataBind("text: Metric"));
 
             div.Nest(table);
         }
