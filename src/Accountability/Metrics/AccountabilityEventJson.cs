@@ -13,7 +13,7 @@ namespace Accountability.Metrics
 			MetricId = @event.MetricId.ToString();
 			SourceId = @event.SourceId.ToString();
 			TargetId = @event.TargetId.ToString();
-			Date = @event.Date.ToString();
+			Date = @event.Date.ToString("M/d/yy");
 			Id = @event.Id.ToString();
 		}
 	}

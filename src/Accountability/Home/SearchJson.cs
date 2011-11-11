@@ -9,9 +9,9 @@
 			Key = new
 			      	{
 			      		@event.GetType().Name,
-			      		Target = @event.TargetId.ToString(),
-			      		Metric = @event.MetricId.ToString(),
-			      		Source = @event.SourceId.ToString()
+			      		TargetId = @event.TargetId.ToString(),
+                        MetricId = @event.MetricId.ToString(),
+                        SourceId = @event.SourceId.ToString()
 			      	};
 			Metric = @event.MetricId.GetMetricName();
 			Summary = @event.GetSummary();

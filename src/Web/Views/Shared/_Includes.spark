@@ -16,6 +16,7 @@
 <Stylesheet src="pagination.css"/>
 <Stylesheet src="jquery.fancybox-1.3.4.css"/>
 <Stylesheet src="jquery.timeentry.css"/>
+<Stylesheet src="Table.css"/>
 
 <Script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"/>
 <Script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js"/>

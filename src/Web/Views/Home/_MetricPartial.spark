@@ -1,4 +1,4 @@
-﻿<viewdata model="MetricPartialView"/>
+﻿<viewdata view="MetricPartialView"/>
 
 <script id="metricTemplate" type="text/html">
   <table>
@@ -22,6 +22,10 @@
     </tr>
   </table>
 
-  !{Model.GetFeedbackTemplate()}
+  !{view.GetFeedbackTemplate()}
 
+</script>
+
+<script type="text/javascript">
+  !{view.GetBlankFeedback()}
 </script>

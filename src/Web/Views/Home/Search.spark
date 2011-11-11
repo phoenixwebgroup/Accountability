@@ -2,6 +2,7 @@
 <viewdata model="SearchFilters"/>
 <content:head>
 	<Script src="~/Views/Home/Search.js"/>
+	<Script src="~/Views/Home/Metric.js"/>
 	<Stylesheet src="~/Views/Home/Search.css"/>
 	<script>
     var initialModel = <Serialize Object="Model"/>;
@@ -13,19 +14,19 @@
     <tr>
       <td>Target</td>
       <td>
-        <select data-bind="value: Target, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
+        <select data-bind="value: TargetId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
       </td>
     </tr>
     <tr>
       <td>Source</td>
       <td>
-        <select data-bind="value: Source, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
+        <select data-bind="value: SourceId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
       </td>
     </tr>
     <tr>
       <td>Metric</td>
       <td>
-        <select data-bind="value: Metric, options: Metrics, optionsText: 'Text', optionsValue: 'Value'"></select>
+        <select data-bind="value: MetricId, options: Metrics, optionsText: 'Text', optionsValue: 'Value'"></select>
       </td>
     </tr>
   </table>
@@ -67,4 +68,4 @@
 	</tr>
 </script>
 
-!{Html.RenderPartial("MetricPartial")}
+<MetricPartial view="new MetricPartialView()"/>

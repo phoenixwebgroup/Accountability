@@ -109,6 +109,7 @@
     <Content Include="Content\pagination.css" />
     <Content Include="Content\selectlist.css" />
     <Content Include="Content\spinner.css" />
+    <Content Include="Content\Table.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Admin\Index.js" />
     <Content Include="Views\Bindings.xml" />
     <Content Include="Scripts\ko.sortableList.js" />
+    <Content Include="Views\Home\Metric.js" />
     <Content Include="Views\Home\Search.css" />
     <Content Include="Views\Home\Search.js" />
     <Content Include="Web.config" />
@@ -283,7 +285,7 @@
     <Content Include="config\smtp.dev.config" />
     <Content Include="config\spark.dev.config" />
     <Content Include="config\settings.dev.config" />
-    <None Include="Views\Home\MetricPartial.spark" />
+    <None Include="Views\Home\_MetricPartial.spark" />
     <None Include="Views\Home\SearchData.spark" />
     <None Include="Views\Home\Search.spark">
       <SubType>Designer</SubType>

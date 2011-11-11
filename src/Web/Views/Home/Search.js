@@ -1,16 +1,16 @@
 ﻿var viewModel;
 
 $(function () {
-
+	
 	var ViewModel = function (data) {
 		var root = this;
 		ko.mapping.fromJS(data, {}, this);
 
 		this.query = ko.dependentObservable(function () {
 			return {
-				target: root.Target(),
-				source: root.Source(),
-				metric: root.Metric()
+				targetId: root.TargetId(),
+				sourceId: root.SourceId(),
+				metricId: root.MetricId()
 			};
 		}, this);
 
@@ -31,13 +31,13 @@ $(function () {
 				url: "Home/Metric",
 				dataType: "json",
 				data: root.selectedDetail()
-			}).pipe(function (r) { return r; });
+			}).pipe(function (r) { return new Metric(r, root.query()); });
 		}, this);
 
 		this.ShowAdd = ko.dependentObservable(function () {
-			var hasTarget = root.Target() != undefined;
-			var hasSource = root.Source() != undefined;
-			var hasMetric = root.Metric() != undefined;
+			var hasTarget = root.TargetId() != undefined;
+			var hasSource = root.SourceId() != undefined;
+			var hasMetric = root.MetricId() != undefined;
 			return hasTarget && hasSource && hasMetric; // check truthiness
 		}, this);
 

@@ -1,0 +1,107 @@
+table.report 
+{
+/*	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+	font-size: 12px;
+	margin: 20px 45px 20px 0px;
+	text-align: left;
+	border-collapse: collapse;
+	border: 1px solid #CCC;
+}
+
+table.report a
+{
+	cursor: pointer;
+}
+
+table.report caption
+{
+	text-align: left;
+	padding: 3px 5px 3px 5px;
+	background: #CCC;
+	padding-left: 15px;
+	font-size: 12pt;
+}
+
+table.report thead th,
+table.report thead td
+{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 12px;
+	border: 0px;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.report tfoot td
+{
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 12px;
+	border: 0px;
+	border-left: 1px dashed #ccc;
+	border-top: 1px solid #ccc;
+}
+
+table.report tbody td
+{
+	padding: 1px 5px 1px 5px;
+	border-right: 1px dashed #ccc;
+	border-bottom: 1px solid #ccc;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+.mismatched
+{
+	color: Red;
+}
+
+table.report tbody tr.summaryRow td
+{
+	border-top: solid 1px #ccc;
+}
+
+table.report .rowSelect .selected
+{
+	background-color: #ccc;
+}
+
+table.report tbody tr
+{
+	cursor: pointer;
+}
+
+table.report tbody tr:hover
+{
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+table.report.no-hover tbody tr:hover
+{
+	background-color: white;
+	cursor: cursor;
+}
+
+table.report tbody td
+{
+	vertical-align: middle;
+}
+
+table.report.no-hover tbody td
+{
+	border-bottom: none;
+}
+
+.groupHeader
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+table.report tbody tr.note td {
+    vertical-align: top;
+}

@@ -15,17 +15,17 @@
 	{
 		public SearchFilters()
 		{
-			Target = UserPrincipal.Current.User.Id.ToString();
+			TargetId = UserPrincipal.Current.User.Id.ToString();
 		}
 
 		[OptionsFrom("Users")]
-		public string Target { get; set; }
+		public string TargetId { get; set; }
 
 		[OptionsFrom("Users"), WithBlankOption]
-		public string Source { get; set; }
+		public string SourceId { get; set; }
 
 		[OptionsFrom("Metrics"), WithBlankOption]
-		public string Metric { get; set; }
+		public string MetricId { get; set; }
 
 		public Options Users
 		{
@@ -56,17 +56,17 @@
 		public List<AccountabilityEvent> GetResults()
 		{
 			var events = Mongo.Events.AsQueryable();
-			var targetId = Target.ParseObjectId();
+			var targetId = TargetId.ParseObjectId();
 			if (targetId.HasValue)
 			{
 				events = events.Where(e => e.TargetId == targetId.Value);
 			}
-			var sourceId = Source.ParseObjectId();
+			var sourceId = SourceId.ParseObjectId();
 			if (sourceId.HasValue)
 			{
 				events = events.Where(e => e.SourceId == sourceId.Value);
 			}
-			var metricId = Metric.ParseObjectId();
+			var metricId = MetricId.ParseObjectId();
 			if (metricId.HasValue)
 			{
 				events = events.Where(e => e.MetricId == metricId.Value);
@@ -78,9 +78,9 @@
 
 		public List<AccountabilityEvent> Match()
 		{
-			var targetId = Target.ParseObjectId();
-			var sourceId = Source.ParseObjectId();
-			var metricId = Metric.ParseObjectId();
+			var targetId = TargetId.ParseObjectId();
+			var sourceId = SourceId.ParseObjectId();
+			var metricId = MetricId.ParseObjectId();
 			if (!targetId.HasValue || !sourceId.HasValue || !metricId.HasValue)
 			{
 				throw new Exception("Not enough detail");

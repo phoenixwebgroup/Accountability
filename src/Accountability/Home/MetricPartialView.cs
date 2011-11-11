@@ -10,13 +10,6 @@ namespace Accountability.Home
 
     public class MetricPartialView
     {
-        private readonly UserPrincipal _Principal;
-
-        public MetricPartialView(UserPrincipal principal)
-        {
-            _Principal = principal;
-        }
-
         public HtmlTag GetFeedbackTemplate()
         {
             var table = Tags.Table.Caption("Feedback");
@@ -32,9 +25,10 @@ namespace Accountability.Home
             addRow.Cell().Nest(Tags.Span.DataBind("text: Date"));
             addRow.Cell().Nest(Tags.Span.DataBind("text: Source"));
             addRow.Cell().Nest(new GiveFeedback().InputFor(x => x.Rating).DataBind("value: Rating"));
-            addRow.Cell().Nest(new HtmlTag("textarea").DataBind("text: Notes"));
-            addRow.Cell().Nest(Tags.Link.Href("#").Text("Save").DataBind("click: function() { $root.saveFeedback($data); }"));
-            var addBody = new HtmlTag("tbody").DataBind("with: Feedback");
+            addRow.Cell().Nest(new HtmlTag("textarea").DataBind("value: Notes"));
+            addRow.Cell().Nest(
+                Tags.Link.Href("#").Text("Save").DataBind("click: function() { $parent.saveFeedback(); }"));
+            var addBody = new HtmlTag("tbody").DataBind("with: NewFeedback");
             addBody.Nest(addRow);
 
             var noteRow = new TableRowTag();
@@ -55,9 +49,9 @@ namespace Accountability.Home
             return table.AddClasses("report", "no-hover");
         }
 
-        public string BlankFeedbackFunction()
+        public string GetBlankFeedback()
         {
-            return string.Format("this.BlankFeedback = function(){{ return ko.mapping.fromJS({0}); }}",
+            return string.Format("function getBlankFeedback(){{ return ko.mapping.fromJS({0}); }}",
                                  Serialize.Javascript(FeedbackJson));
         }
 
@@ -66,13 +60,12 @@ namespace Accountability.Home
             get
             {
                 return new
-                {
-                    SourceId = _Principal.User.Id,
-                    Source = _Principal.User.Name,
-                    Date = DateTime.Today,
-                    Feedback = "",
-                    Rating = ""
-                };
+                           {
+                               Source = UserPrincipal.Current.User.Name,
+                               Date = DateTime.Today,
+                               Notes = "",
+                               Rating = ""
+                           };
             }
         }
     }
