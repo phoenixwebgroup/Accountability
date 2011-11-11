@@ -1,0 +1,9 @@
+﻿<viewdata view="MetricForm"/>
+
+<script id="metricTemplate" type="text/html">
+ !{view.GetView()}
+</script>
+
+<script type="text/javascript">
+  !{view.GetBlankFeedback()}
+</script>

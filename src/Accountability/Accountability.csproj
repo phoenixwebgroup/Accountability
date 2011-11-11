@@ -134,7 +134,6 @@
     <Compile Include="Auth\UserPrincipal.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\MetricForm.cs" />
-    <Compile Include="Home\MetricPartialView.cs" />
     <Compile Include="Home\SearchFilters.cs" />
     <Compile Include="Home\SearchJson.cs" />
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />

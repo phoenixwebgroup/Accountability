@@ -68,4 +68,4 @@
 	</tr>
 </script>
 
-<MetricPartial view="new MetricPartialView()"/>
+<MetricForm view="new MetricForm()"/>
