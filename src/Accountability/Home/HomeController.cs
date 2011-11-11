@@ -2,12 +2,20 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-	using Metrics;
+    using Authentication;
+    using Metrics;
 	using Mongos;
 
     public class HomeController : Controller
 	{
-		public ViewResult Search()
+        private readonly UserPrincipal _Principal;
+
+        public HomeController(UserPrincipal principal)
+        {
+            _Principal = principal;
+        }
+
+        public ViewResult Search()
 		{
 		    var model = new SearchFilters();
 			return View(model);
@@ -19,6 +27,13 @@
         		.GetResults()
         		.Select(r => new SearchJson(r));
             return Json(results);
+        }
+
+        [ChildActionOnly]
+        public ViewResult MetricPartial()
+        {
+            var model = new MetricPartialView(_Principal);
+            return View(model);
         }
 
         public JsonResult Metric(SearchFilters filters)

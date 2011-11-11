@@ -1,0 +1,27 @@
+﻿<viewdata model="MetricPartialView"/>
+
+<script id="metricTemplate" type="text/html">
+  <table>
+    <tr>
+      <td>Target</td>
+      <td>
+        <span data-bind="text: Targets"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Sources</td>
+      <td>
+        <span data-bind="text: Sources"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Metric</td>
+      <td>
+        <span data-bind="text: Metric"></span>
+      </td>
+    </tr>
+  </table>
+
+  !{Model.GetFeedbackTemplate()}
+
+</script>

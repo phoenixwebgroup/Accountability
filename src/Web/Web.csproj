@@ -283,6 +283,7 @@
     <Content Include="config\smtp.dev.config" />
     <Content Include="config\spark.dev.config" />
     <Content Include="config\settings.dev.config" />
+    <None Include="Views\Home\MetricPartial.spark" />
     <None Include="Views\Home\SearchData.spark" />
     <None Include="Views\Home\Search.spark">
       <SubType>Designer</SubType>
