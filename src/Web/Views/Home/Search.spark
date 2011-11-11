@@ -7,6 +7,12 @@
 	<script>
     var initialModel = <Serialize Object="Model"/>;
   </script>
+  <style>
+    .report textarea
+    {
+      width: 400px;
+    }
+  </style>
 </content:head>
 
 <div class="Filters">
