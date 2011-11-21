@@ -1,7 +1,7 @@
 require 'rake'
 require 'albacore'
 
-$projectSolution = 'Accountability.sln'
+$projectSolution = 'src/Accountability.sln'
 $artifactsPath = "build"
 $nugetFeedPath = ENV["NuGetDevFeed"]
 $srcPath = File.expand_path('src')
@@ -22,7 +22,6 @@ task :clean do
 	bins = FileList[File.join($srcPath, "**/bin")].map{|f| File.expand_path(f)}
 	bins.each do |file|
 		sh %Q{rmdir /S /Q "#{file}"}
-		#sh 
     end
 end
 
