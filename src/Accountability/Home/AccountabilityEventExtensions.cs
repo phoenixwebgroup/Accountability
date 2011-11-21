@@ -10,8 +10,7 @@
 		{
 			var currentUserId = UserPrincipal.Current.User.Id;
 			return source
-				.Where(e => e.TargetId == currentUserId)
-				.Where(e => e.SourceId == currentUserId);
+				.Where(e => e.TargetId == currentUserId || e.SourceId == currentUserId);
 		}
 	}
 }
