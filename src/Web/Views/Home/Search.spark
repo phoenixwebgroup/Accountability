@@ -1,5 +1,5 @@
 ﻿<use master="Site"/>
-<viewdata model="SearchFilters"/>
+<viewdata model="AccountabilityEventSearchFilters"/>
 <content:head>
 	<Script src="~/Views/Home/Search.js"/>
 	<Script src="~/Views/Home/Metric.js"/>

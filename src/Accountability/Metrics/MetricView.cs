@@ -7,7 +7,7 @@
 
     public class MetricView
     {
-        public MetricView(SearchFilters filters)
+        public MetricView(AccountabilityEventSearchFilters filters)
         {
             var events = filters.Match();
             SourceId = filters.SourceId;

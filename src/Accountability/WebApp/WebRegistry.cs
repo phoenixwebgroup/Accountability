@@ -13,6 +13,7 @@
 			RegisterControllers();
 			For<UserPrincipal>().LifeStyle.PerWebRequest();
 			ScanMyAssembly(Conventions.FirstInterfaceIsIName);
+			ScanMyAssemblyForSelfService();
 		}
 
 		private void RegisterControllerFactory()

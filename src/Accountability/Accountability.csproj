@@ -133,9 +133,10 @@
     <Compile Include="Auth\UserInformation.cs" />
     <Compile Include="Auth\UserPrincipal.cs" />
     <Compile Include="Home\AccountabilityEventExtensions.cs" />
+    <Compile Include="Home\AccountabilityEventsService.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\MetricForm.cs" />
-    <Compile Include="Home\SearchFilters.cs" />
+    <Compile Include="Home\AccountabilityEventSearchFilters.cs" />
     <Compile Include="Home\SearchJson.cs" />
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />

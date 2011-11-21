@@ -11,9 +11,9 @@
 	using Metrics;
 	using Mongos;
 
-	public class SearchFilters
+	public class AccountabilityEventSearchFilters
 	{
-		public SearchFilters()
+		public AccountabilityEventSearchFilters()
 		{
 			TargetId = UserPrincipal.Current.User.Id.ToString();
 		}
