@@ -72,6 +72,7 @@
 				events = events.Where(e => e.MetricId == metricId.Value);
 			}
 			return events
+				.RestrictEventsForCurrentUser()
 				.OrderByDescending(o => o.Date)
 				.ToList();
 		}

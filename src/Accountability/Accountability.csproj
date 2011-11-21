@@ -132,6 +132,7 @@
     <Compile Include="Auth\OpenIdUserService.cs" />
     <Compile Include="Auth\UserInformation.cs" />
     <Compile Include="Auth\UserPrincipal.cs" />
+    <Compile Include="Home\AccountabilityEventExtensions.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\MetricForm.cs" />
     <Compile Include="Home\SearchFilters.cs" />
