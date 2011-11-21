@@ -90,6 +90,7 @@
 				.Where(e => e.TargetId == targetId.Value)
 				.Where(e => e.SourceId == sourceId.Value)
 				.Where(e => e.MetricId == metricId.Value)
+				.RestrictEventsForCurrentUser()
 				.ToList();
 		}
 	}
