@@ -1,14 +1,18 @@
 require 'rake'
 require 'albacore'
+load 'RakeShared.rb'
 
 $projectSolution = 'src/Accountability.sln'
 $artifactsPath = "build"
 $nugetFeedPath = ENV["NuGetDevFeed"]
 $srcPath = File.expand_path('src')
+$webZip = 'Web.zip'
+$environment = 'dev'
 
 task :teamcity => [:build_release]
 
-task :build => [:build_release]
+desc "Build and package the project"
+task :build => [:build_release, :package_web]
 
 msbuild :build_release => [:clean, :dep] do |msb|
   msb.properties :configuration => :Release
@@ -37,4 +41,15 @@ end
 desc "Backup mongo database"
 task :mongobackup do
 	sh "mongodump -d Accountability -o mongobackup"
+end
+
+task :package_web do
+	package = PackageManager.new()
+	package.sourcePath = 'src/Web/'
+	package.configFileName = 'Web.config'
+	package.artifactsPath = $artifactsPath
+	package.environment = $environment
+	package.zip.exclusions = [/Web\/Web.config/, /\.cs$/, /\.log$/, /obj/, /Properties/, /\.csproj/, /bin\/.*\.xml$/]
+	package.zipFile = $webZip
+	package.BuildZip()
 end
