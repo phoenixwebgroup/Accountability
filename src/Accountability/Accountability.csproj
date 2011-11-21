@@ -187,6 +187,7 @@
     <Compile Include="WebApp\FilterRegistry.cs" />
     <Compile Include="WebApp\FubuRegistry.cs" />
     <Compile Include="WebApp\ModelBindersInit.cs" />
+    <Compile Include="WebApp\Navigation.cs" />
     <Compile Include="WebApp\WebEndpoint.cs" />
     <Compile Include="WebApp\NoPageActionsSecurity.cs" />
     <Compile Include="WebApp\ObjectIdModelBinder.cs" />

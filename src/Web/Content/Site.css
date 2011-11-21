@@ -73,3 +73,12 @@ textarea
 {
     display: none;
 }
+
+
+.NavigationHeader {
+	background-color:#555; color:white; font-size: 12pt; padding: 2px 10px 2px 2px; text-align: right
+}
+
+.NavigationHeader a {
+	color: #CCC; text-decoration:none;font-size: 10pt;padding-left: 5px;
+}
