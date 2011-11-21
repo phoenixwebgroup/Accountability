@@ -95,7 +95,7 @@ namespace Accountability.Home
                            {
                                Source = UserPrincipal.Current.User.Name,
                                SourceId = UserPrincipal.Current.User.Id.ToString(),
-                               Date = DateTime.Today,
+                               Date = "new",
                                Notes = "",
                                Rating = ""
                            };
