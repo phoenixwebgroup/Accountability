@@ -8,9 +8,9 @@ $(function () {
 
 		this.query = ko.dependentObservable(function () {
 			return {
-				targetId: root.TargetId(),
-				sourceId: root.SourceId(),
-				metricId: root.MetricId()
+				TargetId: root.TargetId(),
+				SourceId: root.SourceId(),
+				MetricId: root.MetricId()
 			};
 		}, this);
 
@@ -35,9 +35,9 @@ $(function () {
 		}, this);
 
 		this.ShowAdd = ko.dependentObservable(function () {
-			var hasTarget = root.TargetId() != undefined;
-			var hasSource = root.SourceId() != undefined;
-			var hasMetric = root.MetricId() != undefined;
+			var hasTarget = root.TargetId() != '';
+			var hasSource = root.SourceId() != '';
+			var hasMetric = root.MetricId() != '';
 			return hasTarget && hasSource && hasMetric; // check truthiness
 		}, this);
 
