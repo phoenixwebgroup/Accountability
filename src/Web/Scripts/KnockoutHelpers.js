@@ -30,6 +30,27 @@ ko.bindingHandlers.fadeOut = {
 	}
 };
 
+ko.bindingHandlers.slideDown = {
+	update: function (element, valueAccessor, allBindingsAccessor) {
+		var value = valueAccessor(), allBindings = allBindingsAccessor();
+		var valueUnwrapped = ko.utils.unwrapObservable(value);
+		if (valueUnwrapped === true) {
+			var speed = allBindings.speed || 'fast';
+			$(element).slideDown();
+		}
+	}
+};
+ko.bindingHandlers.slideUp = {
+	update: function (element, valueAccessor, allBindingsAccessor) {
+		var value = valueAccessor(), allBindings = allBindingsAccessor(); ;
+		var valueUnwrapped = ko.utils.unwrapObservable(value);
+		if (valueUnwrapped === true) {
+			var speed = allBindings.speed || 'fast';
+			$(element).slideUp();
+		}
+	}
+};
+
 // jqModal dialog
 ko.bindingHandlers.modal = {
 	init: function(element, valueAccessor, allBindingsAccessor, context) {
