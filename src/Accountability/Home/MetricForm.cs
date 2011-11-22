@@ -70,7 +70,7 @@ namespace Accountability.Home
             noteRow.Cell().Nest(Tags.Span.DataBind("text: Date"));
             noteRow.Cell().Nest(Tags.Span.DataBind("text: Source"));
             noteRow.Cell().Nest(Tags.Span.DataBind("text: Rating"));
-            noteRow.Cell().Nest(Tags.Span.DataBind("text: Notes"));
+            noteRow.Cell().Nest(new HtmlTag("pre").Style("white-space", "pre-wrap").DataBind("text: Notes"));
             noteRow.Cell();
             var notesBody = new HtmlTag("tbody").DataBind("foreach: Feedback");
             notesBody.Nest(noteRow);
