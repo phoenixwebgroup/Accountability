@@ -1,15 +1,22 @@
 ﻿var viewModel;
 
 $(function () {
-	
+
 	var ViewModel = function (data) {
 		var root = this;
 		ko.mapping.fromJS(data, {}, this);
 
+		this.UserFilterLabel = ko.dependentObservable(function () {
+			if (root.Type() == "1") {	 // for me
+				return "Source";
+			}
+			return "Target";
+		});
+
 		this.query = ko.dependentObservable(function () {
 			return {
-				TargetId: root.TargetId(),
-				SourceId: root.SourceId(),
+				Type: root.Type(),
+				UserId: root.UserId(),
 				MetricId: root.MetricId()
 			};
 		}, this);
@@ -35,10 +42,9 @@ $(function () {
 		}, this);
 
 		this.ShowAdd = ko.dependentObservable(function () {
-			var hasTarget = root.TargetId() != '';
-			var hasSource = root.SourceId() != '';
+			var hasUser = root.UserId() != '';
 			var hasMetric = root.MetricId() != '';
-			return hasTarget && hasSource && hasMetric; // check truthiness
+			return hasUser && hasMetric; // check truthiness
 		}, this);
 
 		this.AddNew = function () {

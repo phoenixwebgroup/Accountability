@@ -15,14 +15,13 @@
 	{
 		public AccountabilityEventSearchFilters()
 		{
-			TargetId = UserPrincipal.Current.User.Id.ToString();
+			Type = SearchType.ForMe;
 		}
 
-		[OptionsFrom("Users")]
-		public string TargetId { get; set; }
+		public SearchType Type { get; set; }
 
 		[OptionsFrom("Users"), WithBlankOption]
-		public string SourceId { get; set; }
+		public string UserId { get; set; }
 
 		[OptionsFrom("Metrics"), WithBlankOption]
 		public string MetricId { get; set; }
@@ -56,15 +55,16 @@
 		public List<AccountabilityEvent> GetResults()
 		{
 			var events = Mongo.Events.AsQueryable();
-			var targetId = TargetId.ParseObjectId();
-			if (targetId.HasValue)
+			var me = UserPrincipal.Current.User.Id;
+			events = ForMe 
+					? events.Where(e => e.TargetId == me)
+					: events.Where(e => e.SourceId == me);
+			var userId = UserId.ParseObjectId();
+			if (userId.HasValue)
 			{
-				events = events.Where(e => e.TargetId == targetId.Value);
-			}
-			var sourceId = SourceId.ParseObjectId();
-			if (sourceId.HasValue)
-			{
-				events = events.Where(e => e.SourceId == sourceId.Value);
+				events = ForMe 
+					? events.Where(e => e.SourceId == userId.Value)
+					: events.Where(e => e.TargetId == userId.Value);
 			}
 			var metricId = MetricId.ParseObjectId();
 			if (metricId.HasValue)
@@ -77,21 +77,28 @@
 				.ToList();
 		}
 
+		private bool ForMe
+		{
+			get { return Type == SearchType.FromMe; }
+		}
+
 		public List<AccountabilityEvent> Match()
 		{
-			var targetId = TargetId.ParseObjectId();
-			var sourceId = SourceId.ParseObjectId();
-			var metricId = MetricId.ParseObjectId();
-			if (!targetId.HasValue || !sourceId.HasValue || !metricId.HasValue)
-			{
-				throw new Exception("Not enough detail");
-			}
-			return Mongo.Events.AsQueryable()
-				.Where(e => e.TargetId == targetId.Value)
-				.Where(e => e.SourceId == sourceId.Value)
-				.Where(e => e.MetricId == metricId.Value)
-				.RestrictEventsForCurrentUser()
-				.ToList();
+			throw new NotImplementedException();
+			// todo 
+			//var targetId = TargetId.ParseObjectId();
+			//var sourceId = SourceId.ParseObjectId();
+			//var metricId = MetricId.ParseObjectId();
+			//if (!targetId.HasValue || !sourceId.HasValue || !metricId.HasValue)
+			//{
+			//    throw new Exception("Not enough detail");
+			//}
+			//return Mongo.Events.AsQueryable()
+			//    .Where(e => e.TargetId == targetId.Value)
+			//    .Where(e => e.SourceId == sourceId.Value)
+			//    .Where(e => e.MetricId == metricId.Value)
+			//    .RestrictEventsForCurrentUser()
+			//    .ToList();
 		}
 	}
 }

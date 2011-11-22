@@ -139,7 +139,9 @@
     <Compile Include="Home\AccountabilityEventSearchFilters.cs" />
     <Compile Include="Home\SearchJson.cs" />
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />
+    <Compile Include="Home\SearchType.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
+    <Compile Include="Infrastructure\KnockoutHelpers.cs" />
     <Compile Include="Infrastructure\DateTimeConverter.cs" />
     <Compile Include="Infrastructure\ExportFilter.cs" />
     <Compile Include="Infrastructure\HtmlExtensions.cs" />

@@ -1,24 +1,20 @@
 namespace Accountability.Home
 {
-    using System;
     using Authentication;
     using HtmlTags;
     using HtmlTags.Extensions;
-    using HtmlTags.UI;
-    using Infrastructure;
-    using Metrics;
+	using Infrastructure;
 
     public class MetricForm
     {
         public HtmlTag GetView()
         {
             var div = Tags.Div;
-            AddCriteria(div);
-            AddReviewDates(div);
-            AddFeedback(div);
-            AddActionItems(div);
-            return div;
-        }
+			AddReviewDates(div);
+			AddFeedback(div);
+			AddActionItems(div);
+			return div;
+		}
 
         private void AddCriteria(HtmlTag div)
         {
@@ -39,20 +35,20 @@ namespace Accountability.Home
             div.Nest(table);
         }
 
-        private void AddReviewDates(HtmlTag div)
-        {
-            // TODO Add review dates template
-        }
+		private void AddReviewDates(HtmlTag div)
+		{
+			// TODO Add review dates template
+		}
 
-        private void AddFeedback(HtmlTag div)
-        {
-            var table = Tags.Table.Caption("Feedback");
-            var headerRow = table.AddHeaderRow();
-            headerRow.Cell("Date");
-            headerRow.Cell("From");
-            headerRow.Cell("Rating");
-            headerRow.Cell("Notes");
-            headerRow.Cell();
+		private void AddFeedback(HtmlTag div)
+		{
+			var table = Tags.Table.Caption("Feedback");
+			var headerRow = table.AddHeaderRow();
+			headerRow.Cell("Date");
+			headerRow.Cell("From");
+			headerRow.Cell("Rating");
+			headerRow.Cell("Notes");
+			headerRow.Cell();
 
             var addRow = new TableRowTag();
             addRow.AddClass("top");

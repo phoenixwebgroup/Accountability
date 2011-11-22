@@ -17,16 +17,16 @@
 
 <div class="Filters">
   <table>
+		<tr>
+			<td>Feedback</td>
+			<td>
+				!{Model.KnockoutInputFor(x => x.Type)}
+			</td>
+		</tr>
     <tr>
-      <td>Target</td>
-      <td>
-        <select data-bind="value: TargetId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
-      </td>
-    </tr>
-    <tr>
-      <td>Source</td>
-      <td>
-        <select data-bind="value: SourceId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
+      <td><span data-bind="text: UserFilterLabel"></span></td>      
+			<td>
+        <select data-bind="value: UserId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
       </td>
     </tr>
     <tr>

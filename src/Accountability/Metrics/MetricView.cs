@@ -10,8 +10,9 @@
         public MetricView(AccountabilityEventSearchFilters filters)
         {
             var events = filters.Match();
-            SourceId = filters.SourceId;
-            TargetId = filters.TargetId;
+			// todo this is going away
+			//SourceId = filters.SourceId;
+			//TargetId = filters.TargetId;
             MetricId = filters.MetricId;
             ActionItems = events.OfType<AddActionItem>().Select(a => new AddActionItemJson(a));
             Feedback = events.OfType<GiveFeedback>().Select(a => new GiveFeedbackJson(a));
