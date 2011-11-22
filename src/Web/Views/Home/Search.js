@@ -6,6 +6,10 @@ $(function () {
 		var root = this;
 		ko.mapping.fromJS(data, {}, this);
 
+		this.Type.subscribe(function () {
+			root.UserId("");
+		});
+
 		this.UserFilterLabel = ko.dependentObservable(function () {
 			if (root.Type() == "1") {	 // for me
 				return "Source";
@@ -30,25 +34,43 @@ $(function () {
 			}).pipe(function (r) { return r; });
 		}, this);
 
-		this.selectedDetail = ko.observable(null);
-
-		this.details = asyncDependentObservable(function () {
-			if (root.selectedDetail() == null) return;
-			return $.ajax({
-				url: "Home/Metric",
-				dataType: "json",
-				data: root.selectedDetail()
-			}).pipe(function (r) { return new Metric(r, root.query()); });
-		}, this);
-
-		this.ShowAdd = ko.dependentObservable(function () {
+		this.ShowAddButton = ko.dependentObservable(function () {
 			var hasUser = root.UserId() != '';
 			var hasMetric = root.MetricId() != '';
 			return hasUser && hasMetric; // check truthiness
 		}, this);
 
-		this.AddNew = function () {
-			root.selectedDetail(root.query());
+		this.ShowGiveFeedback = function () {
+			root.GiveFeedback.IsVisible(true);
+		};
+
+		this.GiveFeedback = new GiveFeedback(this);
+	};
+
+	var GiveFeedback = function (root) {
+		var me = this;
+
+		this.IsVisible = ko.observable(false);
+
+		this.Model = ko.observable(getBlankFeedback());
+
+		this.SaveFeedback = function () {
+			var feedback = ko.mapping.toJS(me.Model());
+			feedback.targetId = root.UserId();
+			feedback.metricId = root.MetricId();
+			// todo splice this into the Search Results
+			$.ajax({
+				type: "POST",
+				url: "Home/GiveFeedback",
+				data: feedback,
+				success: function () {
+					me.Model(getBlankFeedback());
+				}
+			});
+		};
+
+		this.Done = function() {
+			me.IsVisible(false);
 		};
 	};
 

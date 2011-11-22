@@ -1,12 +1,14 @@
 ﻿<use master="Site"/>
 <viewdata model="AccountabilityEventSearchFilters"/>
+#var feedbackForm = new GiveFeedbackForm();
 <content:head>
 	<Script src="~/Views/Home/Search.js"/>
 	<Script src="~/Views/Home/Metric.js"/>
 	<Stylesheet src="~/Views/Home/Search.css"/>
 	<script>
     var initialModel = <Serialize Object="Model"/>;
-  </script>
+		!{feedbackForm.GetBlankFeedback()}
+	</script>
   <style>
     .report textarea
     {
@@ -39,10 +41,16 @@
 </div>
 <br style="clear: both"/>
 
-<input type="button" value="New" data-bind="visible: ShowAdd, click: AddNew"></input>
+<input type="button" value="Give Feedback" data-bind="visible: ShowAddButton, click: ShowGiveFeedback"></input>
 <br style="clear: both"/>
 
-<div id="search" style="width: 400px; float:left">
+<div data-bind="with: GiveFeedback">
+	<div id="addSection" data-bind="slideDown: IsVisible, slideUp: !IsVisible()" style="margin: 10px 0; display: none;">
+		!{feedbackForm.GetForm()}
+	</div>
+</div>
+
+<div id="search">
   <i data-bind="visible: results.inProgress">
     <b>Loading...</b>
   </i>
@@ -54,13 +62,6 @@
     </tbody>
   </table>
 </div>
-<!-- ko if: $root.details() != null -->
-<div id="editor" style="float:left" data-bind="template: { name: 'metricTemplate', data: details }">
-  <i data-bind="visible: details.inProgress">
-    <b>Loading...</b>
-  </i>
-</div>
-<!-- /ko-->
 
 <!-- todo not working with inline template? -->
 <script id="resultTemplate" type="text/html">
@@ -73,5 +74,3 @@
 		</td>
 	</tr>
 </script>
-
-<MetricForm view="new MetricForm()"/>

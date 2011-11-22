@@ -135,7 +135,6 @@
     <Compile Include="Home\AccountabilityEventExtensions.cs" />
     <Compile Include="Home\AccountabilityEventsService.cs" />
     <Compile Include="Home\HomeController.cs" />
-    <Compile Include="Home\MetricForm.cs" />
     <Compile Include="Home\AccountabilityEventSearchFilters.cs" />
     <Compile Include="Home\SearchJson.cs" />
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />
@@ -157,6 +156,7 @@
     <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
     <Compile Include="Metrics\AccountabilityEventJson.cs" />
     <Compile Include="Metrics\AddActionItemJson.cs" />
+    <Compile Include="Home\GiveFeedbackForm.cs" />
     <Compile Include="Metrics\GiveFeedbackJson.cs" />
     <Compile Include="Metrics\ScheduleNextReviewJson.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
@@ -170,7 +170,6 @@
     <Compile Include="Metrics\AccountabilityEvent.cs" />
     <Compile Include="Metrics\MetricForm.cs" />
     <Compile Include="Metrics\MetricsById.cs" />
-    <Compile Include="Metrics\MetricView.cs" />
     <Compile Include="Metrics\Rating.cs" />
     <Compile Include="Metrics\ScheduleNextReview.cs" />
     <Compile Include="Users\User.cs" />

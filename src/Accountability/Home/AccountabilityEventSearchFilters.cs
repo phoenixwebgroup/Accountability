@@ -1,6 +1,5 @@
 ﻿namespace Accountability.Home
 {
-	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using Authentication;
@@ -80,25 +79,6 @@
 		private bool ForMe
 		{
 			get { return Type == SearchType.FromMe; }
-		}
-
-		public List<AccountabilityEvent> Match()
-		{
-			throw new NotImplementedException();
-			// todo 
-			//var targetId = TargetId.ParseObjectId();
-			//var sourceId = SourceId.ParseObjectId();
-			//var metricId = MetricId.ParseObjectId();
-			//if (!targetId.HasValue || !sourceId.HasValue || !metricId.HasValue)
-			//{
-			//    throw new Exception("Not enough detail");
-			//}
-			//return Mongo.Events.AsQueryable()
-			//    .Where(e => e.TargetId == targetId.Value)
-			//    .Where(e => e.SourceId == sourceId.Value)
-			//    .Where(e => e.MetricId == metricId.Value)
-			//    .RestrictEventsForCurrentUser()
-			//    .ToList();
 		}
 	}
 }
