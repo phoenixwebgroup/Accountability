@@ -26,12 +26,7 @@
 				.Select(r => new SearchJson(r));
 			return Json(results);
 		}
-
-		public JsonResult Metric(AccountabilityEventSearchFilters filters)
-		{
-			return Json(new MetricView(filters));
-		}
-
+		
 		public void GiveFeedback(GiveFeedback command)
 		{
 			_EventsService.GiveFeedback(command);
