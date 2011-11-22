@@ -58,19 +58,15 @@
   No matches found.
   <!-- /ko -->
   <table>
-    <tbody data-bind="template: {name: 'resultTemplate', foreach: results}">
+    <tbody data-bind="foreach: results">
+			<tr data-bind="click: function() { $root.selectedDetail($data.Key); }">
+				<td>
+					<span data-bind="text: Metric"></span>
+				</td>
+				<td>
+					<span data-bind="text: Summary"></span>
+				</td>
+			</tr>
     </tbody>
   </table>
 </div>
-
-<!-- todo not working with inline template? -->
-<script id="resultTemplate" type="text/html">
-	<tr data-bind="click: function() { $root.selectedDetail($data.Key); }">
-		<td>
-			<span data-bind="text: Metric"></span>
-		</td>
-		<td>
-			<span data-bind="text: Summary"></span>
-		</td>
-	</tr>
-</script>
