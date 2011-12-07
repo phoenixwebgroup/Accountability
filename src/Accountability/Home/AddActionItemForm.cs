@@ -4,29 +4,25 @@ namespace Accountability.Home
 	using HtmlTags.Extensions;
 	using HtmlTags.UI.Attributes;
 	using Infrastructure;
-	using Metrics;
 
-	public class GiveFeedbackForm
+	public class AddActionItemForm
 	{
 		[Multiline]
-		public string Notes { get; set; }
-
-		public Rating Rating { get; set; }
+		public string Description { get; set; }
 
 		public HtmlTag GetForm()
 		{
 			var wrapper = Tags.Div;
 			var fieldset = new HtmlTag("fieldset")
 				.Nest(
-					new HtmlTag("legend").Text("Give Feedback"),
+					new HtmlTag("legend").Text("Add Action Item"),
 					Tags.Div
 						.AddClass("inline")
 						.DataBind("with: Model")
 						.Nest(
-							this.KnockoutEditTemplateFor(m => m.Rating),
-							this.KnockoutEditTemplateFor(m => m.Notes)
+							this.KnockoutEditTemplateFor(m => m.Description)
 						),
-					Tags.SubmitButton.Value("Save Feedback").DataBind("click: SaveFeedback"),
+					Tags.SubmitButton.Value("Save Feedback").DataBind("click: SaveActionItem"),
 					Tags.SubmitButton.Value("Done").DataBind("click: Done")
 				);
 			return wrapper.Nest(fieldset);
@@ -36,10 +32,9 @@ namespace Accountability.Home
 		{
 			var json = new
 			           	{
-			           		Notes = "",
-			           		Rating = ""
+			           		Description = ""
 			           	};
-			return string.Format("function getBlankFeedback(){{ return ko.mapping.fromJS({0}); }}",
+			return string.Format("function getBlankActionItem(){{ return ko.mapping.fromJS({0}); }}",
 			                     Serialize.Javascript(json));
 		}
 	}

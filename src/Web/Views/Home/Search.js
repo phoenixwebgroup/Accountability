@@ -44,7 +44,12 @@ $(function () {
 			root.GiveFeedback.IsVisible(true);
 		};
 
+		this.ShowAddActionItem = function () {
+			root.AddActionItem.IsVisible(true);
+		};
+
 		this.GiveFeedback = new GiveFeedback(this);
+		this.AddActionItem = new AddActionItem(this);
 	};
 
 	var GiveFeedback = function (root) {
@@ -65,11 +70,40 @@ $(function () {
 				data: feedback,
 				success: function () {
 					me.Model(getBlankFeedback());
+					root.query.notifySubscribers(root.query());
 				}
 			});
 		};
 
-		this.Done = function() {
+		this.Done = function () {
+			me.IsVisible(false);
+		};
+	};
+
+	var AddActionItem = function (root) {
+		var me = this;
+
+		this.IsVisible = ko.observable(false);
+
+		this.Model = ko.observable(getBlankActionItem());
+
+		this.SaveActionItem = function () {
+			var feedback = ko.mapping.toJS(me.Model());
+			feedback.targetId = root.UserId();
+			feedback.metricId = root.MetricId();
+			// todo splice this into the Search Results
+			$.ajax({
+				type: "POST",
+				url: "Home/AddActionItem",
+				data: feedback,
+				success: function () {
+					me.Model(getBlankActionItem());
+					root.query.notifySubscribers(root.query());
+				}
+			});
+		};
+
+		this.Done = function () {
 			me.IsVisible(false);
 		};
 	};
