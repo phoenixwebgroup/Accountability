@@ -137,6 +137,7 @@
     <Compile Include="Home\AddActionItemForm.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\AccountabilityEventSearchFilters.cs" />
+    <Compile Include="Home\ScheduleNextReviewForm.cs" />
     <Compile Include="Home\SearchJson.cs" />
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />
     <Compile Include="Home\SearchType.cs" />

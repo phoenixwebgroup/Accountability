@@ -48,8 +48,13 @@ $(function () {
 			root.AddActionItem.IsVisible(true);
 		};
 
+		this.ShowScheduleNextReview = function () {
+			root.ScheduleNextReview.IsVisible(true);
+		};
+
 		this.GiveFeedback = new GiveFeedback(this);
 		this.AddActionItem = new AddActionItem(this);
+		this.ScheduleNextReview = new ScheduleNextReview(this);
 	};
 
 	var GiveFeedback = function (root) {
@@ -63,7 +68,6 @@ $(function () {
 			var feedback = ko.mapping.toJS(me.Model());
 			feedback.targetId = root.UserId();
 			feedback.metricId = root.MetricId();
-			// todo splice this into the Search Results
 			$.ajax({
 				type: "POST",
 				url: "Home/GiveFeedback",
@@ -91,7 +95,6 @@ $(function () {
 			var feedback = ko.mapping.toJS(me.Model());
 			feedback.targetId = root.UserId();
 			feedback.metricId = root.MetricId();
-			// todo splice this into the Search Results
 			$.ajax({
 				type: "POST",
 				url: "Home/AddActionItem",
@@ -104,6 +107,33 @@ $(function () {
 		};
 
 		this.Done = function () {
+			me.IsVisible(false);
+		};
+	};
+
+	var ScheduleNextReview = function(root) {
+		var me = this;
+
+		this.IsVisible = ko.observable(false);
+
+		this.Model = ko.observable(getBlankNextReview());
+
+		this.SaveNextReview = function() {
+			var feedback = ko.mapping.toJS(me.Model());
+			feedback.targetId = root.UserId();
+			feedback.metricId = root.MetricId();
+			$.ajax({
+					type: "POST",
+					url: "Home/ScheduleNextReview",
+					data: feedback,
+					success: function() {
+						me.Model(getBlankNextReview());
+						root.query.notifySubscribers(root.query());
+					}
+				});
+		};
+
+		this.Done = function() {
 			me.IsVisible(false);
 		};
 	};

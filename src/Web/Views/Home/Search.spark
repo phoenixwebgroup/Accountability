@@ -2,6 +2,7 @@
 <viewdata model="AccountabilityEventSearchFilters"/>
 #var feedbackForm = new GiveFeedbackForm();
 #var actionItemForm = new AddActionItemForm();
+#var scheduleNextReviewForm = new ScheduleNextReviewForm();
 <content:head>
 	<Script src="~/Views/Home/Search.js"/>
 	<Script src="~/Views/Home/Metric.js"/>
@@ -10,6 +11,7 @@
     var initialModel = <Serialize Object="Model"/>;
 		!{feedbackForm.GetJavascript()}
 		!{actionItemForm.GetJavascript()}
+		!{scheduleNextReviewForm.GetJavascript()}
 	</script>
   <style>
     .report textarea
@@ -45,6 +47,7 @@
 
 <input type="button" value="Give Feedback" data-bind="visible: ShowAddButton, click: ShowGiveFeedback"></input>
 <input type="button" value="Add Action Item" data-bind="visible: ShowAddButton, click: ShowAddActionItem"></input>
+<input type="button" value="Schedule Review" data-bind="visible: ShowAddButton, click: ShowScheduleNextReview"></input>
 <br style="clear: both"/>
 
 <div data-bind="with: GiveFeedback">
@@ -56,6 +59,12 @@
 <div data-bind="with: AddActionItem">
 	<div data-bind="slideDown: IsVisible, slideUp: !IsVisible()" style="margin: 10px 0; display: none;">
 		!{actionItemForm.GetForm()}
+	</div>
+</div>
+
+<div data-bind="with: ScheduleNextReview">
+	<div data-bind="slideDown: IsVisible, slideUp: !IsVisible()" style="margin: 10px 0; display: none;">
+		!{scheduleNextReviewForm.GetForm()}
 	</div>
 </div>
 
