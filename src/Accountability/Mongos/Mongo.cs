@@ -1,6 +1,9 @@
 ﻿namespace Accountability.Mongos
 {
+	using BclExtensionMethods.ValueTypes;
+	using Infrastructure;
 	using Metrics;
+	using MongoDB.Bson;
 	using MongoDB.Bson.Serialization;
 	using MongoDB.Driver;
 	using Properties;
@@ -19,6 +22,9 @@
 			BsonClassMap.RegisterClassMap<GiveFeedback>();
 			BsonClassMap.RegisterClassMap<AddActionItem>();
 			BsonClassMap.RegisterClassMap<ScheduleNextReview>();
+
+			BsonTypeMapper.RegisterCustomTypeMapper(typeof(Date), new DateBsonTypeMapper());
+			BsonSerializer.RegisterSerializer(typeof(Date), new DateSerializer());
 		}
 
 		public static void Init()

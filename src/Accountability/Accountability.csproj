@@ -142,6 +142,7 @@
     <Compile Include="Home\FeedbackTemplateBuilder.cs" />
     <Compile Include="Home\SearchType.cs" />
     <Compile Include="Infrastructure\ActionDescriptorExtensions.cs" />
+    <Compile Include="Infrastructure\DateSerializer.cs" />
     <Compile Include="Infrastructure\KnockoutHelpers.cs" />
     <Compile Include="Infrastructure\DateTimeConverter.cs" />
     <Compile Include="Infrastructure\ExportFilter.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Home\GiveFeedbackForm.cs" />
     <Compile Include="Metrics\GiveFeedbackJson.cs" />
     <Compile Include="Metrics\ScheduleNextReviewJson.cs" />
+    <Compile Include="Mongos\DateBsonTypeMapper.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
     <Compile Include="Users\Roles.cs" />
     <Compile Include="Users\Source.cs" />
@@ -186,6 +188,7 @@
     <Compile Include="Aggregate.cs" />
     <Compile Include="WebApp\ConfigureConventionsContentPathing.cs" />
     <Compile Include="WebApp\ConfigureSpark.cs" />
+    <Compile Include="WebApp\DateModelBinder.cs" />
     <Compile Include="WebApp\HtmlAttributeEncodingNot.cs" />
     <Compile Include="WebApp\FilterRegistry.cs" />
     <Compile Include="WebApp\FubuRegistry.cs" />
