@@ -9,6 +9,7 @@
 	using Infrastructure;
 	using Metrics;
 	using Mongos;
+	using Users;
 
 	public class AccountabilityEventSearchFilters
 	{
@@ -19,17 +20,17 @@
 
 		public SearchType Type { get; set; }
 
-		[OptionsFrom("Users"), WithBlankOption]
+		[OptionsFrom("Sources"), WithBlankOption]
 		public string UserId { get; set; }
 
 		[OptionsFrom("Metrics"), WithBlankOption]
 		public string MetricId { get; set; }
 
-		public Options Users
+		public Options Sources
 		{
 			get
 			{
-				var options = Mongo.Users
+				var options = new SourcesService()
 					.FindAll()
 					.OrderBy(x => x.Name)
 					.ToOptions(x => x.Id.ToString(), x => x.Name);

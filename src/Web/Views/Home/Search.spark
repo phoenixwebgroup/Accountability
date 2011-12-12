@@ -32,7 +32,7 @@
     <tr>
       <td><span data-bind="text: UserFilterLabel"></span></td>      
 			<td>
-        <select data-bind="value: UserId, options: Users, optionsText: 'Text', optionsValue: 'Value'"></select>
+        <select data-bind="value: UserId, options: Sources, optionsText: 'Text', optionsValue: 'Value'"></select>
       </td>
     </tr>
     <tr>
