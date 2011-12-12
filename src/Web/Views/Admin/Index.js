@@ -14,6 +14,13 @@
 		});
 	});
 
+	$('#AddProject').click(function () {
+		$.ajax({
+			url: 'Admin/AddProject',
+			success: loadEditor
+		});
+	});
+
 });
 
 function itemSaved(data) {

@@ -2,6 +2,7 @@
 {
 	using Metrics;
 	using MongoDB.Bson;
+	using Projects;
 	using Users;
 
 	public class AdminItem
@@ -22,6 +23,13 @@
 			Summary = user.Name + " - " + user.Role + (user.IsActive ? string.Empty : " - Inactive");
 			AdminType = AdminFilters.AdminType.User;
 			Id = user.Id;
+		}
+
+		public AdminItem(Project project)
+		{
+			Summary = project.Name;
+			AdminType = AdminFilters.AdminType.Project;
+			Id = project.Id;
 		}
 	}
 }

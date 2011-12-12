@@ -7,7 +7,7 @@ namespace Accountability.Users
 
 	public class SourcesService
 	{
-		public List<Source> GetAll()
+		public List<Source> FindAll()
 		{
 			return Enumerable
 				.Union<Source>(

@@ -17,7 +17,8 @@
 		public enum AdminType
 		{
 			Metric,
-			User
+			User,
+			Project
 		}
 
 		public AdminType Type { get; set; }
@@ -69,6 +70,17 @@
 					users = users.Where(m => m.Name.Contains(Search));
 				}
 				return users
+					.Select(s => new AdminItem(s));
+			}
+			if (Type == AdminType.Project)
+			{
+				var projects = Mongo.Projects
+					.AsQueryable();
+				if (Search.IsNotNullOrWhiteSpace())
+				{
+					projects = projects.Where(m => m.Name.Contains(Search));
+				}
+				return projects
 					.Select(s => new AdminItem(s));
 			}
 			throw new NotSupportedException("Invalid admin type: " + Type);

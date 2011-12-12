@@ -5,6 +5,7 @@
 	using Metrics;
 	using MongoDB.Bson;
 	using Mongos;
+	using Projects;
 	using Users;
 	using WebApp;
 
@@ -30,6 +31,12 @@
 		public HtmlTag AddUser()
 		{
 			return new UserForm(new User())
+				.GetForm();
+		}
+
+		public HtmlTag AddProject()
+		{
+			return new ProjectForm(new Project())
 				.GetForm();
 		}
 
@@ -60,6 +67,17 @@
 			return "Saved";
 		}
 
+		public string SaveProject(Project project, string delete = null)
+		{
+			if (IsDelete(delete))
+			{
+				Mongo.Projects.Remove(project.Id);
+				return "Deleted";
+			}
+			Mongo.Projects.Save(project);
+			return "Saved";
+		}
+
 		public HtmlTag Edit(AdminFilters.AdminType adminType, ObjectId id)
 		{
 			if (adminType == AdminFilters.AdminType.Metric)
@@ -67,7 +85,12 @@
 				return new MetricForm(Mongo.Metrics.FindOneById(id))
 					.GetForm();
 			}
-			return new UserForm(Mongo.Users.FindOneById(id))
+			if (adminType == AdminFilters.AdminType.User)
+			{
+				return new UserForm(Mongo.Users.FindOneById(id))
+					.GetForm();
+			}
+			return new ProjectForm(Mongo.Projects.FindOneById(id))
 				.GetForm();
 		}
 	}
