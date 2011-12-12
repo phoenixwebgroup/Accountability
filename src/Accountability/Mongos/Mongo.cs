@@ -6,6 +6,7 @@
 	using MongoDB.Bson;
 	using MongoDB.Bson.Serialization;
 	using MongoDB.Driver;
+	using Projects;
 	using Properties;
 	using Users;
 
@@ -44,6 +45,11 @@
 		public static MongoCollection<User> Users
 		{
 			get { return GetCollection<User>(); }
+		}
+
+		public static MongoCollection<Project> Projects
+		{
+			get { return GetCollection<Project>(); }
 		}
 
         public static MongoCollection<AccountabilityEvent> Events

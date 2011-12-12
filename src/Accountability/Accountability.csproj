@@ -164,8 +164,11 @@
     <Compile Include="Metrics\ScheduleNextReviewJson.cs" />
     <Compile Include="Mongos\DateBsonTypeMapper.cs" />
     <Compile Include="Mongos\MongoExtensions.cs" />
+    <Compile Include="Projects\Project.cs" />
+    <Compile Include="Projects\ProjectForm.cs" />
     <Compile Include="Users\Roles.cs" />
     <Compile Include="Users\Source.cs" />
+    <Compile Include="Users\SourcesService.cs" />
     <Compile Include="Users\UserForm.cs" />
     <Compile Include="CacheExtensions.cs" />
     <Compile Include="Metrics\AddActionItem.cs" />
