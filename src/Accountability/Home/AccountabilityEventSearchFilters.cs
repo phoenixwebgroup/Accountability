@@ -79,7 +79,7 @@
 
 		private bool ForMe
 		{
-			get { return Type == SearchType.FromMe; }
+			get { return Type == SearchType.ForMe; }
 		}
 	}
 }
